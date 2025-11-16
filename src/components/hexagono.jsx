@@ -1,12 +1,64 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
+// Componente que controla a animação da câmera
+function CameraController({ estado }) {
+    // const cameraRef = useRef();
+    const targetPosition = useRef(new THREE.Vector3());
+    const targetLookAt = useRef(new THREE.Vector3(0, 0, 0));
+    const isAnimating = useRef(false);
+    const animationSpeed = 0.05; // Velocidade (0.01 = lento, 0.1 = rápido)
+
+    useEffect(() => {
+        // Define posições baseado no estado
+        if (estado === 0) {
+            targetPosition.current.set(0, 0, 0);
+        } else if (estado === 1) {
+            targetPosition.current.set(0, 0, 10);
+        } else if (estado === 2) {
+            targetPosition.current.set(10, 0, 0);
+        } else if (estado === 3) {
+            targetPosition.current.set(10, 0, 10);
+        } else if (estado === 4) {
+            targetPosition.current.set(-10, 0, 10);
+        } else if (estado === 5) {
+            targetPosition.current.set(-10, 0, -10);
+        }
+        
+        isAnimating.current = true;
+    }, [estado]);
+
+    useFrame(({ camera }) => {
+        if (isAnimating.current) {
+            // Interpola suavemente a posição da câmera
+            camera.position.lerp(targetPosition.current, animationSpeed);
+            
+            // Faz a câmera olhar para o ponto definido
+            const currentLookAt = new THREE.Vector3();
+            camera.getWorldDirection(currentLookAt);
+            currentLookAt.multiplyScalar(10).add(camera.position);
+            currentLookAt.lerp(targetLookAt.current, animationSpeed * 3);
+            camera.lookAt(currentLookAt);
+
+            // Para a animação quando estiver próximo do alvo
+            const distance = camera.position.distanceTo(targetPosition.current);
+            if (distance < 0.01) {
+                camera.position.copy(targetPosition.current);
+                camera.lookAt(targetLookAt.current);
+                isAnimating.current = false;
+            }
+        }
+    });
+
+    return null;
+}
+
 // Componente do Hexágono
 export function Hexagon({
     position = [0, 0, 0],
-    size = 2.5,
+    size = 2,
     color = "#ffff00",
     rotation = [0, 0, 0],
     animate = true,
@@ -95,19 +147,20 @@ export function Hexagon({
 
 
 // Componente do Canvas
-function HexagonCanvas() {
+function HexagonCanvas({estado}) {
+    const colors = ["#ff0", "#F00", "#0F0", "#00F", "#fff"]
 
     const hexagons = React.useMemo(() => {
         const items = [];
-        const count = 50; // quantidade de hexágonos
+        const count = 200; // quantidade de hexágonos
 
         for (let i = 0; i < count; i++) {
             items.push({
                 id: i,
                 position: [
-                    (Math.random() - 0.5) * 10, // x entre -10 e 10
-                    (Math.random() - 0.5) * 10, // y entre -10 e 10
-                    (Math.random() - 0.5) * 5 - 15 // z entre -10 e -5 (atrás)
+                    (Math.random() - 0.5) * 50, 
+                    (Math.random() - 0.5) * 50, 
+                    (Math.random() - 0.5) * 50
                 ],
                 size: Math.random() * 2 + 0.05, // tamanho entre 0.3 e 0.8
                 rotation: [
@@ -120,25 +173,61 @@ function HexagonCanvas() {
         return items;
     }, []);
 
+    function obter_cor(estado){
+        let cor = null
+
+        switch(estado){
+            case 2:
+                cor = colors[1]
+                break;
+            case 3:
+                cor = colors[2]
+                break;
+            case 4:
+                cor = colors[3]
+                break;
+            case 5:
+                cor = colors[4]
+                break;
+            default:
+                cor = colors[0]
+                break;
+        }
+
+        return cor
+    }
+
     return (
-        <div style={{ width: '100vw', height: '100vh', background: "transparent", position: "absolute", top: 0 }}>
+        <div style={{ width: '100vw', height: '100vh', background: "transparent", position: "absolute", top: 0, zIndex: "-1" }}>
             <Canvas
                 gl={{ stencil: true }}
                 camera={{
-                    position: [0, 0, 10],
+                    position: [0, 0, 0],
                     fov: 50
-                }}>
+                }}
+            >
+                {/* Adicione o CameraController aqui */}
+                <CameraController estado={estado} />
                 <ambientLight intensity={1}/>
-                <Hexagon stencilMode='mask' />
+                <Hexagon color="#ff0" stencilMode='mask' />
                 {hexagons.map((hex) => (
                     <Hexagon
                     key={hex.id}
                     position={hex.position}
-                    size={hex.size * 0.5}
+                    size={hex.size}
                     color="#000"
                     rotation={hex.rotation}
                     animate={true}
                     stencilMode='content'
+                    />
+                ))}
+                {hexagons.map((hex) => (
+                    <Hexagon
+                    key={hex.id}
+                    position={hex.position}
+                    size={hex.size * 0.9}
+                    color="#ff0"
+                    rotation={hex.rotation}
                     />
                 ))}
 
