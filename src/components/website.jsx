@@ -2,12 +2,13 @@ import styled from "styled-components"
 
 const MainStyled = styled.main`
     height: 100vh;
-    background: ${$props => $props.bgColor};
+    background: ${$props => $props.bgcolor};
+    backdrop-filter: brightness(50%);
 `;
 
-export default function Website({children, bgColor}){
+export default function Website({children, bgcolor}){
     return (
-        <MainStyled bgColor={bgColor}>
+        <MainStyled bgcolor={bgcolor}>
             {children}
         </MainStyled>
     )

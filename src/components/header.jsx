@@ -1,26 +1,41 @@
 import styled from "styled-components"
 
 const HeaderStyled = styled.header`
-    background-color: black;
-    border-bottom: dashed 2px #FF0;
+    background-color: #0F0F0F;
+    padding: 0 16px;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    `;
+
+const Wrapper = styled.div`
     display: flex;
+    justify-content: space-between;
+    border-bottom: dashed 1px #FF0;
+    margin: 0 auto;
+    width: 100%;
+    padding: 16px 0;
 `;
 
-export default function Header({setEstado, estado}){
+const MenuButton = styled.button`
+    background-color: transparent;
+    border: none;
+    color: #FF0;
+    font-size: 30px;
+`;
+
+export default function Header({setEstado}){
 
 
     return (
         <HeaderStyled>
-            <h2 style={{
-                color: "#ff0",
-                width: "100%",
-                textAlign: "center",
-                fontWeight: "100",
-                margin:0
-                }}>
-                forjatech
-            </h2>
-            <button onClick={() => setEstado((estado < 5) ? estado + 1 : 1)}>...</button>
+            <Wrapper>
+                <img src="/logo_full.svg" alt="logo forjatech" />
+                <MenuButton onClick={() => setEstado(2)}>...</MenuButton>
+            </Wrapper>
         </HeaderStyled>
     )
 }

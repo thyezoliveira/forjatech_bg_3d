@@ -9,22 +9,24 @@ function CameraController({ estado }) {
     const targetPosition = useRef(new THREE.Vector3());
     const targetLookAt = useRef(new THREE.Vector3(0, 0, 0));
     const isAnimating = useRef(false);
-    const animationSpeed = 0.05; // Velocidade (0.01 = lento, 0.1 = rápido)
+    const animationSpeed = 0.03; // Velocidade (0.01 = lento, 0.1 = rápido)
 
     useEffect(() => {
         // Define posições baseado no estado
         if (estado === 0) {
             targetPosition.current.set(0, 0, 0);
         } else if (estado === 1) {
-            targetPosition.current.set(0, 0, 10);
-        } else if (estado === 2) {
-            targetPosition.current.set(10, 0, 0);
-        } else if (estado === 3) {
-            targetPosition.current.set(10, 0, 10);
+            targetPosition.current.set(0, 0, 5);
+        } 
+        // else if (estado === 2) {
+        //     targetPosition.current.set(5, 0, 0);
+        // } 
+        else if (estado === 3) {
+            targetPosition.current.set(5, 0, 5);
         } else if (estado === 4) {
-            targetPosition.current.set(-10, 0, 10);
+            targetPosition.current.set(-5, 0, 5);
         } else if (estado === 5) {
-            targetPosition.current.set(-10, 0, -10);
+            targetPosition.current.set(-5, 0, -5);
         }
         
         isAnimating.current = true;
@@ -62,7 +64,8 @@ export function Hexagon({
     color = "#ffff00",
     rotation = [0, 0, 0],
     animate = true,
-    stencilMode = "none" // "mask" | "content" | "none"
+    stencilMode = "none", // "mask" | "content" | "none"
+    speed = 1
 }) {
     const meshRef = useRef();
 
@@ -98,8 +101,8 @@ export function Hexagon({
 
     useFrame((_, delta) => {
         if (meshRef.current && animate) {
-            meshRef.current.rotation.x += delta * 0.2;
-            meshRef.current.rotation.y += delta * 0.3;
+            meshRef.current.rotation.x += delta * 0.2 * speed;
+            meshRef.current.rotation.y += delta * 0.3 * speed;
         }
     });
 
@@ -140,6 +143,7 @@ export function Hexagon({
                 metalness={0}
                 roughness={1}
                 {...stencilProps} // aplica dinamicamente
+                // wireframe
             />
         </mesh>
     );
@@ -148,7 +152,7 @@ export function Hexagon({
 
 // Componente do Canvas
 function HexagonCanvas({estado}) {
-    const colors = ["#ff0", "#F00", "#0F0", "#00F", "#fff"]
+    // const colors = ["#ff0", "#F00", "#0F0", "#00F", "#fff"]
 
     const hexagons = React.useMemo(() => {
         const items = [];
@@ -173,29 +177,29 @@ function HexagonCanvas({estado}) {
         return items;
     }, []);
 
-    function obter_cor(estado){
-        let cor = null
+    // function obter_cor(estado){
+    //     let cor = null
 
-        switch(estado){
-            case 2:
-                cor = colors[1]
-                break;
-            case 3:
-                cor = colors[2]
-                break;
-            case 4:
-                cor = colors[3]
-                break;
-            case 5:
-                cor = colors[4]
-                break;
-            default:
-                cor = colors[0]
-                break;
-        }
+    //     switch(estado){
+    //         case 2:
+    //             cor = colors[1]
+    //             break;
+    //         case 3:
+    //             cor = colors[2]
+    //             break;
+    //         case 4:
+    //             cor = colors[3]
+    //             break;
+    //         case 5:
+    //             cor = colors[4]
+    //             break;
+    //         default:
+    //             cor = colors[0]
+    //             break;
+    //     }
 
-        return cor
-    }
+    //     return cor
+    // }
 
     return (
         <div style={{ width: '100vw', height: '100vh', background: "transparent", position: "absolute", top: 0, zIndex: "-1" }}>
@@ -203,7 +207,7 @@ function HexagonCanvas({estado}) {
                 gl={{ stencil: true }}
                 camera={{
                     position: [0, 0, 0],
-                    fov: 50
+                    fov: 75
                 }}
             >
                 {/* Adicione o CameraController aqui */}
@@ -214,10 +218,9 @@ function HexagonCanvas({estado}) {
                     <Hexagon
                     key={hex.id}
                     position={hex.position}
-                    size={hex.size}
+                    size={hex.size * 1.1}
                     color="#000"
                     rotation={hex.rotation}
-                    animate={true}
                     stencilMode='content'
                     />
                 ))}
@@ -225,7 +228,7 @@ function HexagonCanvas({estado}) {
                     <Hexagon
                     key={hex.id}
                     position={hex.position}
-                    size={hex.size * 0.9}
+                    size={hex.size}
                     color="#ff0"
                     rotation={hex.rotation}
                     />
