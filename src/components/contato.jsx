@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import {CTAButton} from "./hero";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 const SectionStyled = styled.section`
     background-color: rgba(0,0,0,0.2);
@@ -61,6 +63,7 @@ const SectionStyled = styled.section`
         justify-content: space-between;
 
         a{
+            opacity: 0;
             font-size: 14px;
             span{
                 img{
@@ -77,7 +80,31 @@ const BtnCotacao = styled(CTAButton)`
     margin: 16px 0;
 `;
 
-export default function ContactPage({setEstado}){
+export default function ContactPage(){
+    // {setEstado}){
+    const ReferenciaGIT = useRef(null)
+    const ReferenciaINSTA = useRef(null)
+    const ReferenciaLINKEDIN = useRef(null)
+    
+    const ReferenciaEMAIL = useRef(null)
+    const ReferenciaTEL = useRef(null)
+
+    const ReferenciaLINE1 = useRef(null)
+    const ReferenciaLINE2 = useRef(null)
+
+    useEffect(() => {
+        gsap.fromTo(ReferenciaLINE1.current, {width: "0"}, {width: "100%", duration: .2})
+        
+        gsap.fromTo(ReferenciaEMAIL.current, {opacity: 0}, {opacity: 1, duration: 1, delay: .2})
+        gsap.fromTo(ReferenciaTEL.current, {opacity: 0}, {opacity: 1, duration: 1, delay: .4})
+        
+        gsap.fromTo(ReferenciaLINE2.current, {width: "0"}, {width: "100%", duration: .4, delay: .6})
+
+        gsap.to(ReferenciaGIT.current, {opacity: 1, y: 32, duration: 2, delay: .8})
+        gsap.to(ReferenciaINSTA.current, {opacity: 1, y: 32, duration: 2, delay: 1})
+        gsap.to(ReferenciaLINKEDIN.current, {opacity: 1, y: 32, duration: 2, delay: 1.2})
+    })
+
     return (
         <SectionStyled>
             <h1>CONTATO</h1>
@@ -85,18 +112,20 @@ export default function ContactPage({setEstado}){
             <p>Primeira conversa sempre gratuita. Sem compromisso, apenas foco em entender seu negócio.</p>
 
             {/* <BtnCotacao onClick={() => setEstado(3)} disabled>Peça seu orçamento</BtnCotacao> */}
-            <div className="division"></div>
+            <div ref={ReferenciaLINE1} className="division"></div>
+
             <div className="linkHolder">
-                <p><span><img src="/email_icon.svg" alt="" /></span>thyezoliveira@gmail.com</p>
-                <p><span><img src="/phone.svg" alt="" /></span>(22)998548514</p>
+                <p ref={ReferenciaEMAIL}><span><img src="/email_icon.svg" alt="" /></span>thyezoliveira@gmail.com</p>
+                <p ref={ReferenciaTEL}><span><img src="/phone.svg" alt="" /></span>(22)998548514</p>
                 {/* <p><span><img src="/meet.svg" alt="" /></span>Reuniōes presenciais</p> */}
             </div>
 
-            <div className="division"></div>
+            <div ref={ReferenciaLINE2} className="division"></div>
+
             <div className="socialHolder">
-                <a href="https://github.com/thyezoliveira" ><span><img src="/github_icone.svg" alt="" /></span></a>
-                <a href="https://www.instagram.com/forja_tech/" ><span><img src="/instagram_icone.svg" alt="" /></span></a>
-                <a href="https://www.linkedin.com/in/engsofthyezoliveira/" ><span><img src="/linkedin_icone.svg" alt="" /></span></a>
+                <a ref={ReferenciaGIT} href="https://github.com/thyezoliveira" ><span><img src="/github_icone.svg" alt="" /></span></a>
+                <a ref={ReferenciaINSTA} href="https://www.instagram.com/forja_tech/" ><span><img src="/instagram_icone.svg" alt="" /></span></a>
+                <a ref={ReferenciaLINKEDIN} href="https://www.linkedin.com/in/engsofthyezoliveira/" ><span><img src="/linkedin_icone.svg" alt="" /></span></a>
             </div>
 
 

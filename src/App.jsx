@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import HexagonCanvas from "./components/hexagono";
 import Website from "./components/website";
 import Header from "./components/header";
@@ -15,6 +15,8 @@ function App() {
     "radial-gradient(circle, var(--cor-principal) 1%, var(--cor-base) 100%);"
   );
 
+  const AnimacaoPaginaInicialExecutada = useRef(false)
+
   useEffect(()=> {
     switch(estado){
       case 4:
@@ -27,22 +29,24 @@ function App() {
   return (
     <>
       <HexagonCanvas estado={estado} />
+      
+
+      {menuIsOpen ?
+      <>
+        <Menu menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen} setEstado={setEstado}/>
+      </> : <>
+
       {estado == 1 ? (
         <>
           <Header setEstado={setEstado} estado={estado} setMenuIsOpen={setMenuIsOpen}/>
           <Website bgcolor={bgColorString}>
             <div style={{ width: "100%", height: "64px" }}></div>
-            <Hero setEstado={setEstado} />
+            <Hero setEstado={setEstado} AnimacaoPaginaInicialExecutada={AnimacaoPaginaInicialExecutada}/>
           </Website>
         </>
       ) : (
         <></>
       )}
-
-      {menuIsOpen ?
-      <>
-        <Menu menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen} setEstado={setEstado}/>
-      </> : <></>}
 
       {estado == 3 ?
       <>
@@ -61,6 +65,8 @@ function App() {
             <ContactPage setEstado={setEstado} />
           </Website>
       </> : <></>}
+
+      </>}
 
     </>
   );

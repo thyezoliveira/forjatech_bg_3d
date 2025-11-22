@@ -1,4 +1,6 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components"
+import { gsap } from "gsap";
 
 const Secao = styled.section`
     padding: 16px;
@@ -35,12 +37,63 @@ export const CTAButton = styled.button`
     padding: 16px;
 `;
 
-export default function Hero({setEstado}){
+export default function Hero({setEstado, AnimacaoPaginaInicialExecutada}){
+    const ReferenciaTitulo = useRef(null)
+    const ReferenciaTexto = useRef(null)
+    const ReferenciaCTA = useRef(null)
+    useEffect(() => {
+        if(!AnimacaoPaginaInicialExecutada.current){
+            gsap.fromTo(
+                ReferenciaTitulo.current,
+                {
+                opacity: 0,
+                y: -50
+                },
+                {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power2.out'
+                }
+            );
+            gsap.fromTo(
+                ReferenciaTexto.current,
+                {
+                opacity: 0,
+                y: 100
+                },
+                {
+                opacity: 1,
+                y: 0,
+                duration: 2,
+                ease: 'power2.out',
+                delay: .4
+                }
+            );
+            gsap.fromTo(
+                ReferenciaCTA.current,
+                {
+                opacity: 0,
+                y: 50
+                },
+                {
+                opacity: 1,
+                y: 0,
+                duration: 3,
+                ease: 'power2.out',
+                delay: .8
+                }
+            );
+        }
+
+        // AnimacaoPaginaInicialExecutada.current = true
+    }, [ReferenciaTitulo, AnimacaoPaginaInicialExecutada])
+
     return (
         <Secao>
-            <Texto style={{color: "#ff0"}}>Transformamos processos manuais em soluçōes digitais inteligentes</Texto>
-            <SubTexto>Desenvolvimento de software personalizado para eliminar tarefas repetitivas, reduzir custos operacionais e transformar dados em decisōes estratégicas para seu negócio.</SubTexto>
-            <CTAButton onClick={() => setEstado(4)}>Analise seus processos gratuitamente</CTAButton>
+            <Texto ref={ReferenciaTitulo} style={{color: "#ff0"}}>Transformamos processos manuais em soluçōes digitais inteligentes</Texto>
+            <SubTexto ref={ReferenciaTexto}>Desenvolvimento de software personalizado para eliminar tarefas repetitivas, reduzir custos operacionais e transformar dados em decisōes estratégicas para seu negócio.</SubTexto>
+            <CTAButton ref={ReferenciaCTA} onClick={() => setEstado(4)}>Analise seus processos gratuitamente</CTAButton>
         </Secao>
     )
 }
