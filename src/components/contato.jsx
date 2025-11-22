@@ -80,7 +80,7 @@ const BtnCotacao = styled(CTAButton)`
     margin: 16px 0;
 `;
 
-export default function ContactPage(){
+export default function ContactPage({setEstado}){
     // {setEstado}){
     const ReferenciaGIT = useRef(null)
     const ReferenciaINSTA = useRef(null)
@@ -100,19 +100,20 @@ export default function ContactPage(){
         
         gsap.fromTo(ReferenciaLINE2.current, {width: "0"}, {width: "100%", duration: .4, delay: .6})
 
-        gsap.to(ReferenciaGIT.current, {opacity: 1, y: 32, duration: 2, delay: .8})
-        gsap.to(ReferenciaINSTA.current, {opacity: 1, y: 32, duration: 2, delay: 1})
-        gsap.to(ReferenciaLINKEDIN.current, {opacity: 1, y: 32, duration: 2, delay: 1.2})
+        gsap.to(ReferenciaGIT.current, {opacity: 1, y: 8, duration: 2, delay: .8})
+        gsap.to(ReferenciaINSTA.current, {opacity: 1, y: 8, duration: 2, delay: 1})
+        gsap.to(ReferenciaLINKEDIN.current, {opacity: 1, y: 8, duration: 2, delay: 1.2})
     })
 
     return (
         <SectionStyled>
             <h1>CONTATO</h1>
             <h3>Vamos forjar algo incrível juntos?</h3>
-            <p>Primeira conversa sempre gratuita. Sem compromisso, apenas foco em entender seu negócio.</p>
-
+            <p>Primeira conversa é gratuita. Sem compromisso, apenas foco em entender sua necessidade.</p>
             {/* <BtnCotacao onClick={() => setEstado(3)} disabled>Peça seu orçamento</BtnCotacao> */}
             <div ref={ReferenciaLINE1} className="division"></div>
+
+            <BtnCotacao onClick={() => setEstado(2)}>CV</BtnCotacao>
 
             <div className="linkHolder">
                 <p ref={ReferenciaEMAIL}><span><img src="/email_icon.svg" alt="" /></span>thyezoliveira@gmail.com</p>

@@ -13,10 +13,11 @@ const Secao = styled.section`
 
 const Texto = styled.h1`
     font-weight: 500;
-    font-size: 40px;
+    font-size: 30px;
     letter-spacing: -1.5px;
-    line-height: 40px;
+    line-height: 30px;
     width: inherit;
+    max-width: 200px;
     margin:32px 0;
 `;
 
@@ -24,7 +25,7 @@ const SubTexto = styled.p`
     font-weight: 400;
     font-size: 16px;
     color: white;
-    line-height: 18px;
+    line-height: 24px;
     letter-spacing: 1.4px;
     margin: 32px 0;
 `;

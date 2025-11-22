@@ -20,10 +20,12 @@ function CameraController({ estado }) {
             targetPosition.current.set(0, 0, 0);
         } else if (estado === 1) {
             targetPosition.current.set(0, 0, 7.5);
+        } else if (estado === 2) {
+            targetPosition.current.set(5, 0, 7.5);
         } else if (estado === 3) {
             targetPosition.current.set(5, 0, 10);
         } else if (estado === 4) {
-            targetPosition.current.set(-10, 0, 10);
+            targetPosition.current.set(-5, 0, 5);
         } else if (estado === 5) {
             targetPosition.current.set(-5, 0, -5);
         }
@@ -203,7 +205,7 @@ function HexagonCanvas({estado}) {
                     />
                 ))}
 
-                <Environment preset='forest' />
+                {/* <Environment preset='forest' /> */}
                 {/* <WavingPlane /> */}
                 
 

@@ -7,6 +7,7 @@ import Menu from "./components/menu";
 import ContactPage from "./components/contato";
 import ProjectsPage from "./components/projetos";
 import OrcamentoForm from "./components/orcamentoForm";
+import CurriculumVitae from "./components/cv";
 
 function App() {
   const [menuIsOpen, setMenuIsOpen] = useState(false)
@@ -47,6 +48,15 @@ function App() {
       ) : (
         <></>
       )}
+
+      {estado == 2 ?
+      <>
+          <Website bgcolor={bgColorString}>
+            <Header setEstado={setEstado} estado={estado} setMenuIsOpen={setMenuIsOpen}/>
+            <div style={{ width: "100%", height: "64px" }}></div>
+            <CurriculumVitae />
+          </Website>
+      </> : <></>}
 
       {estado == 3 ?
       <>
