@@ -1,7 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { Environment, Text } from '@react-three/drei';
 import * as THREE from 'three';
+import WavingPlane from './plane';
+import { EffectComposer, Bloom, Vignette, ChromaticAberration, Selection, Select } from '@react-three/postprocessing';
+import { BlendFunction } from 'postprocessing';
 
 // Componente que controla a animação da câmera
 function CameraController({ estado }) {
@@ -16,21 +19,17 @@ function CameraController({ estado }) {
         if (estado === 0) {
             targetPosition.current.set(0, 0, 0);
         } else if (estado === 1) {
-            targetPosition.current.set(0, 0, 5);
-        } 
-        // else if (estado === 2) {
-        //     targetPosition.current.set(5, 0, 0);
-        // } 
-        else if (estado === 3) {
-            targetPosition.current.set(5, 0, 5);
+            targetPosition.current.set(0, 0, 7.5);
+        } else if (estado === 3) {
+            targetPosition.current.set(5, 0, 10);
         } else if (estado === 4) {
-            targetPosition.current.set(-5, 0, 5);
+            targetPosition.current.set(-10, 0, 10);
         } else if (estado === 5) {
             targetPosition.current.set(-5, 0, -5);
         }
         
         isAnimating.current = true;
-    }, [estado]);
+    }, [estado, targetPosition]);
 
     useFrame(({ camera }) => {
         if (isAnimating.current) {
@@ -64,7 +63,7 @@ export function Hexagon({
     color = "#ffff00",
     rotation = [0, 0, 0],
     animate = true,
-    stencilMode = "none", // "mask" | "content" | "none"
+    stencilMode = "none", // "mask" | "content" | "none" | "refract"
     speed = 1
 }) {
     const meshRef = useRef();
@@ -131,7 +130,8 @@ export function Hexagon({
         }
     })();
 
-    return (
+    return (<>
+        <Select enabled={(stencilMode == "none") ? true : false}>
         <mesh
             ref={meshRef}
             geometry={hexagonGeometry}
@@ -142,10 +142,12 @@ export function Hexagon({
                 color={color}
                 metalness={0}
                 roughness={1}
-                {...stencilProps} // aplica dinamicamente
-                // wireframe
+                transparent={false}
+                {...stencilProps}
             />
         </mesh>
+        </Select>
+    </>
     );
 }
 
@@ -177,62 +179,48 @@ function HexagonCanvas({estado}) {
         return items;
     }, []);
 
-    // function obter_cor(estado){
-    //     let cor = null
-
-    //     switch(estado){
-    //         case 2:
-    //             cor = colors[1]
-    //             break;
-    //         case 3:
-    //             cor = colors[2]
-    //             break;
-    //         case 4:
-    //             cor = colors[3]
-    //             break;
-    //         case 5:
-    //             cor = colors[4]
-    //             break;
-    //         default:
-    //             cor = colors[0]
-    //             break;
-    //     }
-
-    //     return cor
-    // }
-
     return (
         <div style={{ width: '100vw', height: '100vh', background: "transparent", position: "absolute", top: 0, zIndex: "-1" }}>
             <Canvas
-                gl={{ stencil: true }}
+                gl={{ stencil: true, antialias:false }}
                 camera={{
-                    position: [0, 0, 0],
-                    fov: 75
+                    fov: 50
                 }}
             >
-                {/* Adicione o CameraController aqui */}
                 <CameraController estado={estado} />
-                <ambientLight intensity={1}/>
-                <Hexagon color="#ff0" stencilMode='mask' />
+                <ambientLight intensity={3}/>
+                <pointLight position={[0, 5, 5]} intensity={2} />
+                <Hexagon color="#ff0" stencilMode='mask'/>
+
+
                 {hexagons.map((hex) => (
                     <Hexagon
                     key={hex.id}
                     position={hex.position}
-                    size={hex.size * 1.1}
+                    size={hex.size * 1.2}
                     color="#000"
+                    rotation={hex.rotation}
+                    />
+                ))}
+
+                <Environment preset='forest' />
+                {/* <WavingPlane /> */}
+                
+
+                {hexagons.map((hex) => (
+                    <Hexagon
+                    key={hex.id}
+                    position={hex.position}
+                    size={hex.size * .8}
+                    color="#00F"
                     rotation={hex.rotation}
                     stencilMode='content'
                     />
                 ))}
-                {hexagons.map((hex) => (
-                    <Hexagon
-                    key={hex.id}
-                    position={hex.position}
-                    size={hex.size}
-                    color="#ff0"
-                    rotation={hex.rotation}
-                    />
-                ))}
+                
+
+                
+
 
             </Canvas>
         </div>

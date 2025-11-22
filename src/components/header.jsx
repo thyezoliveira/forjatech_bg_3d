@@ -27,14 +27,13 @@ const MenuButton = styled.button`
     font-size: 30px;
 `;
 
-export default function Header({setEstado}){
-
+export default function Header({setMenuIsOpen}){
 
     return (
         <HeaderStyled>
             <Wrapper>
-                <img src="/logo_full.svg" alt="logo forjatech" />
-                <MenuButton onClick={() => setEstado(2)}>...</MenuButton>
+                <img src="/logo_full.svg" alt="logo forjatech" onClick={() => {location.href = location.origin}}/>
+                <MenuButton onClick={() => setMenuIsOpen(true)}>...</MenuButton>
             </Wrapper>
         </HeaderStyled>
     )

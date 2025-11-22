@@ -5,9 +5,11 @@ import Header from "./components/header";
 import Hero from "./components/hero";
 import Menu from "./components/menu";
 import ContactPage from "./components/contato";
-import ProjectsPage from "./components/projetos"
+import ProjectsPage from "./components/projetos";
+import OrcamentoForm from "./components/orcamentoForm";
 
 function App() {
+  const [menuIsOpen, setMenuIsOpen] = useState(false)
   const [estado, setEstado] = useState(1);
   const [bgColorString, setBgColorString] = useState(
     "radial-gradient(circle, var(--cor-principal) 1%, var(--cor-base) 100%);"
@@ -27,8 +29,8 @@ function App() {
       <HexagonCanvas estado={estado} />
       {estado == 1 ? (
         <>
+          <Header setEstado={setEstado} estado={estado} setMenuIsOpen={setMenuIsOpen}/>
           <Website bgcolor={bgColorString}>
-            <Header setEstado={setEstado} />
             <div style={{ width: "100%", height: "64px" }}></div>
             <Hero setEstado={setEstado} />
           </Website>
@@ -37,24 +39,24 @@ function App() {
         <></>
       )}
 
-      {estado == 2 ?
+      {menuIsOpen ?
       <>
-        <Menu setEstado={setEstado} />
+        <Menu menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen} setEstado={setEstado}/>
       </> : <></>}
 
       {estado == 3 ?
       <>
           <Website bgcolor={bgColorString}>
-            <Header setEstado={setEstado} estado={estado} />
+            <Header setEstado={setEstado} estado={estado} setMenuIsOpen={setMenuIsOpen}/>
             <div style={{ width: "100%", height: "64px" }}></div>
-            <ProjectsPage setEstado={setEstado} />
+            <OrcamentoForm />
           </Website>
       </> : <></>}
 
       {estado == 4 ?
       <>
         <Website bgcolor={bgColorString}>
-            <Header setEstado={setEstado} estado={estado} />
+            <Header setEstado={setEstado} estado={estado} setMenuIsOpen={setMenuIsOpen}/>
             <div style={{ width: "100%", height: "64px" }}></div>
             <ContactPage setEstado={setEstado} />
           </Website>

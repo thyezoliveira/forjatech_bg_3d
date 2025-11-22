@@ -12,9 +12,9 @@ const Secao = styled.section`
 const Texto = styled.h1`
     font-weight: 500;
     font-size: 40px;
-    letter-spacing: 1.4px;
+    letter-spacing: -1.5px;
     line-height: 40px;
-    width: 80%;
+    width: inherit;
     margin:32px 0;
 `;
 
@@ -27,7 +27,7 @@ const SubTexto = styled.p`
     margin: 32px 0;
 `;
 
-const CTAButton = styled.button`
+export const CTAButton = styled.button`
     background-color: rgba(0,0,0,0.4);
     border: dashed 1px #FF0;
     color: #FFF;
@@ -39,7 +39,7 @@ export default function Hero({setEstado}){
     return (
         <Secao>
             <Texto style={{color: "#ff0"}}>Transformamos processos manuais em soluçōes digitais inteligentes</Texto>
-            <SubTexto>Desenvolvemos software personalizado que elimina tarefas repetitivas, reduz custos operacionais e transforma dados em decisōes estratégicas para seu negócio.</SubTexto>
+            <SubTexto>Desenvolvimento de software personalizado para eliminar tarefas repetitivas, reduzir custos operacionais e transformar dados em decisōes estratégicas para seu negócio.</SubTexto>
             <CTAButton onClick={() => setEstado(4)}>Analise seus processos gratuitamente</CTAButton>
         </Secao>
     )
