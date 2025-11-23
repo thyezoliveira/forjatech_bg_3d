@@ -183,7 +183,7 @@ export default function CurriculumVitae(){
                     </p>
 
                     <div ref={imgContainerRef} className="imgRef">
-                        <img ref={imgRef} src="/thyez_militar.png" alt="" />
+                        <img ref={imgRef} src="/thyez_amarelo.png" alt="" />
                     </div>
                 </div>
 
