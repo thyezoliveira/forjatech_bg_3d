@@ -41,13 +41,13 @@ const SectionStyled = styled.section`
     }
 
     div.socialHolder{
-        margin-top: 16px;
         display: flex;
         justify-content: space-between;
 
         a{
             opacity: 0;
             font-size: 14px;
+            transform: translateY(20px);
             span{
                 img{
                     width: 35px;
@@ -60,7 +60,7 @@ const SectionStyled = styled.section`
 
 const BtnCotacao = styled(CTAButton)`
     width: 100%;
-    margin: 16px 0;
+    margin: 32px 0;
 `;
 
 export default function ContactPage({setEstado}){
@@ -76,9 +76,9 @@ export default function ContactPage({setEstado}){
     const ReferenciaLINE2 = useRef(null)
 
     useEffect(() => {
-        gsap.to(ReferenciaGIT.current, {opacity: 1, y: 8, duration: 3})
-        gsap.to(ReferenciaINSTA.current, {opacity: 1, y: 8, duration: 3, delay: 1})
-        gsap.to(ReferenciaLINKEDIN.current, {opacity: 1, y: 8, duration: 3, delay: 2})
+        gsap.to(ReferenciaGIT.current, {opacity: 1, y: 0, duration: 1})
+        gsap.to(ReferenciaINSTA.current, {opacity: 1, y: 0, duration: 1, delay: .2})
+        gsap.to(ReferenciaLINKEDIN.current, {opacity: 1, y: 0, duration: 1, delay: .4})
     })
 
     return (
@@ -91,7 +91,7 @@ export default function ContactPage({setEstado}){
 
             <BtnCotacao onClick={() => setEstado(2)}>CV</BtnCotacao>
 
-            <div ref={ReferenciaLINE2} className="division"></div>
+            {/* <div ref={ReferenciaLINE2} className="division"></div> */}
 
             <div className="socialHolder">
                 <a ref={ReferenciaGIT} href="https://github.com/thyezoliveira" ><span><img src="/github_icone.svg" alt="" /></span></a>

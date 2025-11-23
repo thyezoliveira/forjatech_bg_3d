@@ -16,10 +16,10 @@ const Texto = styled.h1`
     font-weight: 500;
     font-size: 30px;
     letter-spacing: -1.5px;
-    line-height: 30px;
+    line-height: 40px;
     width: inherit;
-    max-width: 200px;
-    margin:32px 0;
+    max-width: 240px;
+    margin:16px 0;
 `;
 
 const SubTexto = styled.p`
@@ -93,7 +93,7 @@ export default function Hero({setEstado, AnimacaoPaginaInicialExecutada}){
 
     return (
         <Secao>
-            <Texto ref={ReferenciaTitulo} style={{color: "#ff0"}}>Transformamos processos manuais em soluçōes digitais inteligentes</Texto>
+            <Texto ref={ReferenciaTitulo} style={{color: "#ff0"}}>Transforme seus processos manuais em soluçōes digitais inteligentes</Texto>
             <SubTexto ref={ReferenciaTexto}>Desenvolvimento de software personalizado para eliminar tarefas repetitivas, reduzir custos operacionais e transformar dados em decisōes estratégicas para seu negócio.</SubTexto>
             <CTAButton ref={ReferenciaCTA} onClick={() => setEstado(4)}>Analise seus processos gratuitamente</CTAButton>
         </Secao>

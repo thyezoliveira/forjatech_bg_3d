@@ -19,7 +19,7 @@ const SecaoCurriculo = styled.section`
         display: flex;
 
         p{
-            font-size: 12px;
+            font-size: 14px;
         }
         
         div.imgRef{
@@ -52,7 +52,7 @@ const SecaoCurriculo = styled.section`
 
     h1{
         margin: 16px 0;
-        font-size: 18px;
+        font-size: 19px;
         text-align: center;
         color: white;
         font-family: "Libre Baskerville", serif;
@@ -78,7 +78,7 @@ const SecaoCurriculo = styled.section`
     p{
         margin: 0;
         font-weight: 200;
-        font-size: .8rem;
+        font-size: .9rem;
         color: white;
 
         h3{
@@ -135,9 +135,9 @@ export default function CurriculumVitae(){
             imgRef.current.style.filter = `drop-shadow(0 2px 16px black) brightness(${brightness})`;
 
             // Reduz a largura do container quando scroll passa de 10%
-            if (scrollProgress > 0.4) {
+            if (scrollProgress > 0.3) {
                 // Calcula progresso de 0.1 até 0.8 (normaliza para 0 a 1)
-                const fadeProgress = (scrollProgress - 0.4) / 0.55;
+                const fadeProgress = (scrollProgress - 0.3) / 0.015;
                 const width = 100 - (fadeProgress * 100); // De 100% até 0%
                 imgContainerRef.current.style.width = `${Math.max(0, width)}%`;
             } else {
