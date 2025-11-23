@@ -26,8 +26,8 @@ const SecaoProjetos = styled.section`
 
   p {
     margin: 0;
-    font-weight: 200;
-    font-size: 1.05rem;
+    font-weight: 300;
+    font-size: 1.2rem;
     color: white;
     line-height: 1.4rem;
 
@@ -39,7 +39,7 @@ const SecaoProjetos = styled.section`
   ul {
     list-style: none;
     padding: 0;
-    font-size: .8rem;
+    font-size: 1rem;
     li {
       margin: 8px 0;
       color: white;
