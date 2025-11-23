@@ -8,28 +8,30 @@ const SectionStyled = styled.section`
     padding: 16px;
     color: #FF0;
     height: calc(100vh - 100px);
-    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.6));
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,0.8));
     user-select: none;
 
     h1{
-        letter-spacing: 0.01rem;
+        letter-spacing: .4rem;
         font-size: 2rem;
         font-family: "Libre Baskerville", serif;
         color: white;
     }
     
     h3{
-        letter-spacing: 0.02rem;
+        letter-spacing: .4rem;
+        line-height: 2.4rem;
         font-size: 1.4rem;
-        font-weight: 500;
+        font-weight: 300;
         font-family: "Libre Baskerville", serif;
     }
 
     p{
         color: white;
         font-size: 16px;
-        letter-spacing: 0.032rem;
-        line-height: 1.5rem;
+        letter-spacing: 0.064rem;
+        font-weight: 200;
+        line-height: 1.2rem;
         display: flex;
         align-items: center;
 
@@ -64,43 +66,49 @@ const SectionStyled = styled.section`
         }
     }
 
-    div.cpr{
+    div.copyHolder{
+        height: 100vh;
         position: relative;
-        bottom: -20px;
-        left: 0;
-        background-color: rgba(255, 255, 0, .8);
-        border: dashed 1px #FF0;
-        width: 100%;
-        height: 100px;
-        color: black;
-        overflow: hidden;
-        letter-spacing: 0.1%;
 
-        p{
+        div.cpr{
+            position: absolute;
+            bottom: 500px;
+            left: 0;
+            background-color: rgba(255, 255, 0, .8);
+            border: dashed 1px #FF0;
+            width: 100%;
+            height: 100px;
             color: black;
-            position: absolute;
-            top: -10px;
-            right: 10px;
-        }
-
-        span.c{
-            font-size: 200px;
-            font-weight: 900;
-            position: absolute;
-            top:0;
-            left: 0;
-            transform: translate(-32%, -30%);
-        }
-        
-        span.cp{
-            font-size: 65px;
-            font-weight: 400;
-            position: absolute;
-            top:0;
-            left: 0;
-            transform: translate(34%, 24%);
+            overflow: hidden;
+            letter-spacing: 0.1%;
+    
+            p{
+                color: black;
+                position: absolute;
+                top: -10px;
+                right: 10px;
+            }
+    
+            span.c{
+                font-size: 200px;
+                font-weight: 900;
+                position: absolute;
+                top:0;
+                left: 0;
+                transform: translate(-32%, -30%);
+            }
+            
+            span.cp{
+                font-size: 65px;
+                font-weight: 400;
+                position: absolute;
+                top:0;
+                left: 0;
+                transform: translate(34%, 24%);
+            }
         }
     }
+
 
 `;
 
@@ -148,14 +156,17 @@ export default function ContactPage({setEstado}){
             <BtnCotacao onClick={() => setEstado(2)}>Curriculum Vitae</BtnCotacao>
             {/* <BtnCotacao onClick={() => setEstado(3)}>Peça seu orçamento</BtnCotacao> */}
 
-            <div className="cpr">
-                <span className="c">©</span> 
-                <span className="cp">
-                Copyright
+            <div className="copyHolder">
+                <div className="cpr">
+                    <span className="c">©</span> 
+                    <span className="cp">
+                    Copyright
 
-                </span>
-                <p>forjatech | 2025</p>
+                    </span>
+                    <p>forjatech | 2025</p>
+                </div>
             </div>
+
 
 
         </SectionStyled>

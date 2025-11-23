@@ -22,6 +22,7 @@ const MenuStyled = styled.section`
     div.btnHolder{
         display: flex;
         flex-direction: column;
+        margin-bottom: 64px;
         /* width: 100%; */
     }
 
