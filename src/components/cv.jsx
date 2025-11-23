@@ -36,9 +36,8 @@ const SecaoCurriculo = styled.section`
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-32%, 0);
+                transform: translate(-50%, -20%) translateY(0) scale(1.4);
                 max-width: 200px;
-                scale: 1.4;
                 filter: drop-shadow(0 2px 16px black) brightness(1);
                 transform-origin: center;
                 transition: transform 0.1s ease-out, filter 0.1s ease-out;
@@ -95,11 +94,13 @@ export default function CurriculumVitae(){
 
             // Movimentos sutis
             const translateY = scrollProgress * 100; // Move para baixo
-            const scale = 1 - (scrollProgress * 0.45); // Diminui sutilmente
+            const scale = 1.4 - (scrollProgress * 0.2); // Diminui sutilmente
             const brightness = Math.max(0, 1 - (scrollProgress * 5)); // Evita valores negativos
 
+            console.log("scale: ", scale)
+
             imgRef.current.style.transform = `
-                translate(-32%, 0)
+                translate(-50%, -20%)
                 translateY(${translateY}px)
                 scale(${Math.max(0.1, scale)})
             `;
@@ -146,7 +147,7 @@ export default function CurriculumVitae(){
                     </p>
 
                     <div ref={imgContainerRef} className="imgRef">
-                        <img ref={imgRef} src="/thyez_for_web.png" alt="" />
+                        <img ref={imgRef} src="/thyez_militar.png" alt="" />
                     </div>
                 </div>
 
