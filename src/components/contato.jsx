@@ -12,13 +12,14 @@ const SectionStyled = styled.section`
     user-select: none;
 
     h1{
-        letter-spacing: 0.02rem;
-        font-size: 2.5rem;
+        letter-spacing: 0.01rem;
+        font-size: 2rem;
         font-family: "Libre Baskerville", serif;
+        color: white;
     }
     
     h3{
-        letter-spacing: 0.04rem;
+        letter-spacing: 0.02rem;
         font-size: 1.4rem;
         font-weight: 500;
         font-family: "Libre Baskerville", serif;
