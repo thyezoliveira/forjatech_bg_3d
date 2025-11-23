@@ -78,6 +78,15 @@ function App() {
 
       </>}
 
+      {estado == 5 ?
+      <>
+        <Website bgcolor={bgColorString}>
+            <Header setEstado={setEstado} estado={estado} setMenuIsOpen={setMenuIsOpen}/>
+            <div style={{ width: "100%", height: "64px" }}></div>
+            <ProjectsPage setEstado={setEstado} />
+          </Website>
+      </> : <></>}
+
     </>
   );
 }
