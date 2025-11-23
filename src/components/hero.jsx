@@ -9,6 +9,7 @@ const Secao = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    user-select: none;
 `;
 
 const Texto = styled.h1`

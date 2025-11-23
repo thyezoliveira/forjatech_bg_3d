@@ -7,6 +7,7 @@ const SecaoProjetos = styled.section`
   height: calc(100vh - 100px);
   overflow-y: scroll;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+  user-select: none;
 
   h1 {
     margin: 16px 0;

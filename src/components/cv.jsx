@@ -17,6 +17,7 @@ const SecaoCurriculo = styled.section`
 
     div.ladoAlado{
         display: flex;
+        user-select: none;
 
         p{
             font-size: 14px;
@@ -56,6 +57,7 @@ const SecaoCurriculo = styled.section`
         text-align: center;
         color: white;
         font-family: "Libre Baskerville", serif;
+        user-select: none;
     }
 
     div.linkHolder{
@@ -65,6 +67,7 @@ const SecaoCurriculo = styled.section`
             display: flex;
             align-items: center;
             margin: 0 8px;
+            user-select: auto;
             span{
                 img{
                     width: 16px;
@@ -80,6 +83,7 @@ const SecaoCurriculo = styled.section`
         font-weight: 200;
         font-size: .9rem;
         color: white;
+        user-select: none;
 
         h3{
             font-family: "Libre Baskerville", serif;
@@ -94,6 +98,7 @@ const SecaoCurriculo = styled.section`
     p.experiencia{
         width: 100%;
         margin: 16px 0;
+        user-select: none;
     }
 `;
 
@@ -191,7 +196,16 @@ export default function CurriculumVitae(){
                     <br />
                     <i>Secretaria de Educação de Saquarema</i>
                     <br />
-                    
+                    <p style={{marginTop: 8}}>
+                        - Eu realizo a construção de protótipos, de forma evolutiva, para que este venha a ser um software de uso da organização, trazendo de certa forma uma agilidade maior para as equipes de trabalho. 
+                    </p>
+                </p>
+
+                <p className="experiencia">
+                    <strong>Desenvolvedor Full Stack</strong> | <span>01/2023 - Hoje</span>
+                    <br />
+                    <i>forjatech</i>
+                    <br />
                 </p>
 
                 <p className="experiencia">
@@ -201,12 +215,7 @@ export default function CurriculumVitae(){
                     <br />
                     
                 </p>
-                <p className="experiencia">
-                    <strong>Desenvolvedor Full Stack</strong> | <span>01/2023 - Hoje</span>
-                    <br />
-                    <i>forjatech</i>
-                    <br />
-                </p>
+                
                 <p className="experiencia">
                     <strong>Desenvolvedor Frontend</strong> | <span>06/2020 - 01/2023</span>
                     <br />
@@ -223,12 +232,11 @@ export default function CurriculumVitae(){
                    <br />
                    <br />
                    <span>
-                   Cursando: Bacharelado, Engenharia de Software
-
-                   </span>
+                   Cursando: 
+                   </span> Bacharelado, Engenharia de Software
                    <br />
                    <br />
-                    O curso é voltado às atividades e práticas de engenharia de software. Portanto, ensina sobre o processo de desenvolvimento de software de diversos tipos, arquitetura e padrões de software para os mais diversos usos. Tenho visto também no curso disciplinas de desenvolvimento ágil, nuvem e IA, assim como as consideradas básicas como algoritmos, estruturas de dados e bancos de dados, entre outras disciplinas próprias da TI.
+                    Minha formação em Engenharia de Software é focada na aplicação prática de princípios de engenharia ao longo de todo o ciclo de vida do desenvolvimento. O currículo combina uma sólida base computacional (algoritmos, estruturas de dados e bancos de dados) com práticas avançadas de mercado, incluindo arquitetura de software, design patterns e metodologias ágeis. Além disso, o curso integra tecnologias emergentes e essenciais para o cenário atual, como Computação em Nuvem e Inteligência Artificial, preparando-me para projetar soluções robustas e escaláveis.
 
                 </p>
             </Rolagem>

@@ -9,6 +9,7 @@ const SectionStyled = styled.section`
     color: #FF0;
     height: calc(100vh - 100px);
     filter: drop-shadow(0 1px 2px rgba(0,0,0,0.6));
+    user-select: none;
 
     h1{
         letter-spacing: 0.02rem;
