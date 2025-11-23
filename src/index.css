@@ -3,10 +3,6 @@
 :root{
   --cor-principal: rgba(0, 0, 0, .3);
   --cor-base: rgba(0, 0, 0, 1);
-
-  --vermelho: #f00;
-  --azul: #00F;
-  --verde: #0F0;
 }
 
 body {

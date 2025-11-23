@@ -20,8 +20,17 @@ function App() {
 
   useEffect(()=> {
     switch(estado){
+      case 1:
+        setBgColorString("radial-gradient(circle, rgba(28, 27, 25, 0.5) 50%,rgba(60, 59, 3, 0.5) 100%);")
+        break;
+      case 2:
+        setBgColorString("radial-gradient(circle, rgba(4, 30, 53, 0.25) 50%, rgba(31, 35, 35, 0.25) 100%);")
+        break;
+      case 3:
+        setBgColorString("radial-gradient(circle, rgba(44, 4, 4, 0.25) 50%, rgba(27, 25, 25, 0.25) 100%);")
+        break;
       case 4:
-        setBgColorString("radial-gradient(circle, rgba(0,0,0,0.5) 50%, var(--cor-base) 100%);")
+        setBgColorString("radial-gradient(circle, rgba(5, 53, 40, 0.25) 50%, rgba(28, 30, 31, 0.25) 100%);")
         break;
       default:
         setBgColorString("radial-gradient(circle, var(--cor-principal) 1%, var(--cor-base) 100%);")

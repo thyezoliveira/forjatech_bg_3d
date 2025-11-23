@@ -3,7 +3,7 @@ import styled from "styled-components"
 const MainStyled = styled.main`
     height: 100vh;
     background: ${$props => $props.bgcolor};
-    backdrop-filter: brightness(70%);
+    backdrop-filter: brightness(75%);
 `;
 
 export default function Website({children, bgcolor}){
