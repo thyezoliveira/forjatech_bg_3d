@@ -5,6 +5,7 @@ import * as THREE from 'three';
 import WavingPlane from './plane';
 import { EffectComposer, Bloom, Vignette, ChromaticAberration, Selection, Select } from '@react-three/postprocessing';
 import { BlendFunction } from 'postprocessing';
+import Filtro from './filtro';
 
 // Componente que controla a animação da câmera
 function CameraController({ estado }) {
@@ -183,6 +184,7 @@ function HexagonCanvas({estado}) {
 
     return (
         <div style={{ width: '100vw', height: '100vh', background: "transparent", position: "absolute", top: 0, zIndex: "-1" }}>
+            <Filtro />
             <Canvas
                 gl={{ stencil: true, antialias:false }}
                 camera={{

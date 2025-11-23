@@ -1,15 +1,17 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 const MainStyled = styled.main`
     height: 100vh;
-    background: ${$props => $props.bgcolor};
+    background: ${props => props.bgcolor};
     backdrop-filter: brightness(75%);
+    position: relative;
+    overflow: hidden;
 `;
 
-export default function Website({children, bgcolor}){
+export default function Website({ children, bgcolor = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)" }) {
     return (
         <MainStyled bgcolor={bgcolor}>
             {children}
         </MainStyled>
-    )
+    );
 }

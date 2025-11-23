@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components"
 import { gsap } from "gsap";
+import Filtro from "./filtro";
 
 const Secao = styled.section`
     padding: 16px;
@@ -54,6 +55,7 @@ const WordContainer = styled.span`
 
 export default function Hero({setEstado, AnimacaoPaginaInicialExecutada}){
     const ReferenciaTitulo = useRef(null);
+    const ReferenciaFraseMeio = useRef(null);
     const ReferenciaTexto = useRef(null);
     const ReferenciaCTA = useRef(null);
     const wordElement = useRef(null);
@@ -106,6 +108,20 @@ export default function Hero({setEstado, AnimacaoPaginaInicialExecutada}){
                     delay: .8
                 }
             );
+            gsap.fromTo(
+                ReferenciaFraseMeio.current,
+                {
+                    opacity:0,
+                    x: 300
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 2,
+                    ease: 'bounce.out',
+                    delay: 1.2
+                }
+            )
         }
 
         // Função de animação das palavras
@@ -162,10 +178,11 @@ export default function Hero({setEstado, AnimacaoPaginaInicialExecutada}){
 
     return (
         <Secao>
+            
             <Texto ref={ReferenciaTitulo} style={{color: "#ff0"}}>
                 Do trabalho manual à soluções digitais inteligentes.
             </Texto>
-            <Texto style={{color: "white"}}>
+            <Texto ref={ReferenciaFraseMeio} style={{color: "white"}}>
                 <WordContainer>
                     <span ref={wordElement}>Transforme</span>
                 </WordContainer> seus processos!
