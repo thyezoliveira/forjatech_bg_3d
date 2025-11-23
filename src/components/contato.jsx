@@ -12,15 +12,15 @@ const SectionStyled = styled.section`
     user-select: none;
 
     h1{
-        letter-spacing: .4rem;
+        letter-spacing: .01rem;
         font-size: 2rem;
         font-family: "Libre Baskerville", serif;
         color: white;
     }
     
     h3{
-        letter-spacing: .4rem;
-        line-height: 2.4rem;
+        letter-spacing: .2rem;
+        line-height: 2rem;
         font-size: 1.4rem;
         font-weight: 300;
         font-family: "Libre Baskerville", serif;
@@ -49,7 +49,7 @@ const SectionStyled = styled.section`
         display: flex;
         justify-content: space-around;
         margin: 16px 0;
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(0,0,0,0.4);
         padding: 16px 0;
         border: dashed 1px #FF0;
 

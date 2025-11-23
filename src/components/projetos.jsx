@@ -1,32 +1,35 @@
 import styled from "styled-components";
 
 const SecaoProjetos = styled.section`
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 16px;
   color: #ff0;
   height: calc(100vh - 100px);
   overflow-y: scroll;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
   user-select: none;
 
   h1 {
-    margin: 16px 0;
-    font-size: 19px;
-    /* text-align: center; */
-    color: white;
     font-family: "Libre Baskerville", serif;
+    font-size: 1.6rem;
+    letter-spacing: .01rem;
+    color: white;
+    margin: 16px 0;
   }
-
+  
   h3 {
     font-family: "Libre Baskerville", serif;
     color: #ff0;
+    letter-spacing: .2rem;
+    font-weight: 100;
   }
 
   p {
     margin: 0;
     font-weight: 200;
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     color: white;
+    line-height: 1.4rem;
 
     span {
       color: #ff0;
@@ -36,6 +39,7 @@ const SecaoProjetos = styled.section`
   ul {
     list-style: none;
     padding: 0;
+    font-size: .8rem;
     li {
       margin: 8px 0;
       color: white;
@@ -55,10 +59,6 @@ const SecaoProjetos = styled.section`
 
 const Rolagem = styled.div`
   display: block;
-
-  h3 {
-    font-family: "Libre Baskerville", serif;
-  }
 `;
 
 export default function ProjectsPage() {
@@ -76,7 +76,7 @@ export default function ProjectsPage() {
 
         <div className="division"></div>
 
-        <h1>🏛️ Infraestrutura e Automação Governamental</h1>
+        <h1>Infraestrutura e Automação Governamental 🏛️</h1>
 
         <h3>Secretaria de Educação de Saquarema</h3>
 
@@ -111,7 +111,7 @@ export default function ProjectsPage() {
 
         <div className="division"></div>
 
-        <h1>🎮 Gamificação e Interatividade (FLIS)</h1>
+        <h1>Gamificação e Interatividade (FLIS) 🎮</h1>
         <h3>Feira Literária Itinerante de Saquarema</h3>
 
         <p>
@@ -139,7 +139,7 @@ export default function ProjectsPage() {
         <div className="division"></div>
 
         <h1>
-            🌐 Transformação Digital e Web (2020 - 2023)
+            Transformação Digital e Web (2020 - 2023) 🌐
         </h1>
 
         <h3>
