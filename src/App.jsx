@@ -21,16 +21,16 @@ function App() {
   useEffect(()=> {
     switch(estado){
       case 1:
-        setBgColorString("radial-gradient(circle, rgba(0, 0, 0, 0.6) 50%,rgba(78, 77, 3, 0.9) 100%);")
+        setBgColorString("radial-gradient(circle, rgba(0, 0, 0, 0.6) 50%,rgba(79, 77, 0, 0.9) 100%);")
         break;
       case 2:
-        setBgColorString("radial-gradient(circle, rgba(4, 30, 53, 0.2) 50%, rgba(2, 47, 47, 0.8) 100%);")
+        setBgColorString("radial-gradient(circle, rgba(0, 0, 0, 0.6) 50%, rgba(0, 66, 66, 0.8) 100%);")
         break;
       case 3:
-        setBgColorString("radial-gradient(circle, rgba(44, 4, 4, 0.2) 50%, rgba(67, 4, 4, 0.8) 100%);")
+        setBgColorString("radial-gradient(circle, rgba(0, 0, 0, 0.6) 50%, rgba(77, 0, 0, 0.8) 100%);")
         break;
       case 4:
-        setBgColorString("radial-gradient(circle, rgba(13, 14, 14, 0.2) 50%, rgba(3, 33, 48, 0.8) 100%);")
+        setBgColorString("radial-gradient(circle, rgba(0, 0, 0, 0.6) 50%, rgba(0, 41, 62, 0.8) 100%);")
         break;
       default:
         setBgColorString("radial-gradient(circle, var(--cor-principal) 1%, var(--cor-base) 100%);")

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const SecaoProjetos = styled.section`
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
   padding: 16px;
   color: #ff0;
   height: calc(100vh - 100px);

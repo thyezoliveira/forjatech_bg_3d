@@ -78,7 +78,7 @@ const SecaoCurriculo = styled.section`
         }
     }
 
-    p{
+    div{
         margin: 0;
         font-weight: 200;
         font-size: .9rem;
@@ -95,7 +95,7 @@ const SecaoCurriculo = styled.section`
         }
     }
     
-    p.experiencia{
+    div.experiencia{
         width: 100%;
         margin: 16px 0;
         user-select: none;
@@ -175,12 +175,15 @@ export default function CurriculumVitae(){
 
 
                 <div className="ladoAlado">
-                    <p>
+                    <div>
                     <h3>
                         Habilidades Técnicas
                     </h3>
-                    Python <span> | </span>Flask <span> | </span>JavaScript <span> | </span>Node <span> | </span>AWS <span> | </span>linux <span> | </span>SSH <span> | </span>MySQL <span> | </span>Git <span> | </span> Modelagem 3d <span> | </span>Ui/Ux <span> | </span>Figma <span> | </span>Krita <span> | </span>React.js <span> | </span>THREE.js <span> | </span>Sass <span> | </span>Godot Engine<span> | </span>Desenvolvedor Full-Stack <span> | </span>Backend <span> | </span>Frontend <span> | </span>Web <span> | </span>Nuvem <span> | </span>Jogos<span> | </span>Francófono <span> | </span>Inglês intermediário <span> | </span>Gestão de projetos web <span> | </span>IA
+
+                    <p>
+                        Python <span> | </span>Flask <span> | </span>JavaScript <span> | </span>Node <span> | </span>AWS <span> | </span>linux <span> | </span>SSH <span> | </span>MySQL <span> | </span>Git <span> | </span> Modelagem 3d <span> | </span>Ui/Ux <span> | </span>Figma <span> | </span>Krita <span> | </span>React.js <span> | </span>THREE.js <span> | </span>Sass <span> | </span>Godot Engine<span> | </span>Desenvolvedor Full-Stack <span> | </span>Backend <span> | </span>Frontend <span> | </span>Web <span> | </span>Nuvem <span> | </span>Jogos<span> | </span>Francófono <span> | </span>Inglês intermediário <span> | </span>Gestão de projetos web <span> | </span>IA
                     </p>
+                    </div>
 
                     <div ref={imgContainerRef} className="imgRef">
                         <img ref={imgRef} src="/thyez_amarelo.png" alt="" />
@@ -191,7 +194,7 @@ export default function CurriculumVitae(){
 
                 <h3>Experiência</h3>
                 
-                <p className="experiencia">
+                <div className="experiencia">
                     <strong>Assessor de informática</strong> | <span>1/2025 - Hoje</span>
                     <br />
                     <i>Secretaria de Educação de Saquarema</i>
@@ -199,35 +202,35 @@ export default function CurriculumVitae(){
                     <p style={{marginTop: 8}}>
                         - Eu realizo a construção de protótipos, de forma evolutiva, para que este venha a ser um software de uso da organização, trazendo de certa forma uma agilidade maior para as equipes de trabalho. 
                     </p>
-                </p>
+                </div>
 
-                <p className="experiencia">
+                <div className="experiencia">
                     <strong>Desenvolvedor Full Stack</strong> | <span>01/2023 - Hoje</span>
                     <br />
                     <i>forjatech</i>
                     <br />
-                </p>
+                </div>
 
-                <p className="experiencia">
+                <div className="experiencia">
                     <strong>Estagiário</strong> | <span>10/2023 - 12/2024</span>
                     <br />
                     <i>Secretaria de Educação de Saquarema</i>
                     <br />
                     
-                </p>
+                </div>
                 
-                <p className="experiencia">
+                <div className="experiencia">
                     <strong>Desenvolvedor Frontend</strong> | <span>06/2020 - 01/2023</span>
                     <br />
                     <i>Freelance</i>
                     <br />
-                </p>
+                </div>
 
                 <div ref={ReferenciaLINE1} className="division"></div>
 
                 <h3>Formação acadêmica</h3>
 
-                <p className="experiencias">
+                <div className="experiencias">
                    Universidade Cruzeiro do Sul / <strong>UNICSUL</strong> <span>10/2021 - 10/2025</span>
                    <br />
                    <br />
@@ -238,7 +241,7 @@ export default function CurriculumVitae(){
                    <br />
                     Minha formação em Engenharia de Software é focada na aplicação prática de princípios de engenharia ao longo de todo o ciclo de vida do desenvolvimento. O currículo combina uma sólida base computacional (algoritmos, estruturas de dados e bancos de dados) com práticas avançadas de mercado, incluindo arquitetura de software, design patterns e metodologias ágeis. Além disso, o curso integra tecnologias emergentes e essenciais para o cenário atual, como Computação em Nuvem e Inteligência Artificial, preparando-me para projetar soluções robustas e escaláveis.
 
-                </p>
+                </div>
             </Rolagem>
         </SecaoCurriculo>
     )
