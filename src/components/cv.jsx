@@ -2,10 +2,10 @@ import styled from "styled-components"
 import {CTAButton} from "./hero";
 import { useEffect, useRef } from "react";
 
-const BtnCotacao = styled(CTAButton)`
-    width: 100%;
-    margin: 16px 0;
-`;
+// const BtnCotacao = styled(CTAButton)`
+//     width: 100%;
+//     margin: 16px 0;
+// `;
 
 const SecaoCurriculo = styled.section`
     background-color: rgba(0,0,0,0.4);
@@ -52,9 +52,27 @@ const SecaoCurriculo = styled.section`
 
     h1{
         margin: 16px 0;
-        font-size: 20px;
+        font-size: 18px;
         text-align: center;
         color: white;
+        font-family: "Libre Baskerville", serif;
+    }
+
+    div.linkHolder{
+        display: flex;
+        
+        p{
+            display: flex;
+            align-items: center;
+            margin: 0 8px;
+            span{
+                img{
+                    width: 16px;
+                    height: 16px;
+                    margin: 0 2px;
+                }
+            }
+        }
     }
 
     p{
@@ -62,6 +80,11 @@ const SecaoCurriculo = styled.section`
         font-weight: 200;
         font-size: .8rem;
         color: white;
+
+        h3{
+            font-family: "Libre Baskerville", serif;
+            color: #FF0;
+        }
 
         span{
             color: #FF0;
@@ -76,6 +99,10 @@ const SecaoCurriculo = styled.section`
 
 const Rolagem = styled.div`
     display: block;
+
+    h3{
+        font-family: "Libre Baskerville", serif;
+    }
 `;
 
 export default function CurriculumVitae(){
@@ -108,9 +135,9 @@ export default function CurriculumVitae(){
             imgRef.current.style.filter = `drop-shadow(0 2px 16px black) brightness(${brightness})`;
 
             // Reduz a largura do container quando scroll passa de 10%
-            if (scrollProgress > 0.128) {
+            if (scrollProgress > 0.4) {
                 // Calcula progresso de 0.1 até 0.8 (normaliza para 0 a 1)
-                const fadeProgress = (scrollProgress - 0.128) / 0.55;
+                const fadeProgress = (scrollProgress - 0.4) / 0.55;
                 const width = 100 - (fadeProgress * 100); // De 100% até 0%
                 imgContainerRef.current.style.width = `${Math.max(0, width)}%`;
             } else {
@@ -135,14 +162,18 @@ export default function CurriculumVitae(){
             <Rolagem>
                 <h1>Thyéz de Oliveira Monteiro</h1>
 
+                <div className="linkHolder">
+                    <p><span><img src="/email_icon.svg" alt="" /></span>thyezoliveira@gmail.com</p>
+                    <p><span><img src="/phone.svg" alt="" /></span>(22)998548514</p>
+                </div>
                 <div ref={ReferenciaLINE1} className="division"></div>
 
-                <h3>
-                    Habilidades Técnicas
-                </h3>
 
                 <div className="ladoAlado">
                     <p>
+                    <h3>
+                        Habilidades Técnicas
+                    </h3>
                     Python <span> | </span>Flask <span> | </span>JavaScript <span> | </span>Node <span> | </span>AWS <span> | </span>linux <span> | </span>SSH <span> | </span>MySQL <span> | </span>Git <span> | </span> Modelagem 3d <span> | </span>Ui/Ux <span> | </span>Figma <span> | </span>Krita <span> | </span>React.js <span> | </span>THREE.js <span> | </span>Sass <span> | </span>Godot Engine<span> | </span>Desenvolvedor Full-Stack <span> | </span>Backend <span> | </span>Frontend <span> | </span>Web <span> | </span>Nuvem <span> | </span>Jogos<span> | </span>Francófono <span> | </span>Inglês intermediário <span> | </span>Gestão de projetos web <span> | </span>IA
                     </p>
 
@@ -156,17 +187,31 @@ export default function CurriculumVitae(){
                 <h3>Experiência</h3>
                 
                 <p className="experiencia">
-                    - Assessor de informática / Secretaria de Educação de Saquarema <span>1/2025 - Hoje</span>
+                    <strong>Assessor de informática</strong> | <span>1/2025 - Hoje</span>
+                    <br />
+                    <i>Secretaria de Educação de Saquarema</i>
+                    <br />
+                    
                 </p>
 
                 <p className="experiencia">
-                    - Estagiário / Secretaria de Educação de Saquarema <span>10/2023 - 12/2024</span>
+                    <strong>Estagiário</strong> | <span>10/2023 - 12/2024</span>
+                    <br />
+                    <i>Secretaria de Educação de Saquarema</i>
+                    <br />
+                    
                 </p>
                 <p className="experiencia">
-                    - Desenvolvedor Full Stack / forjatech <span>01/2023 - 10/2023</span>
+                    <strong>Desenvolvedor Full Stack</strong> | <span>01/2023 - Hoje</span>
+                    <br />
+                    <i>forjatech</i>
+                    <br />
                 </p>
                 <p className="experiencia">
-                    - Desenvolvedor Frontend / Freelance <span>06/2020 - 01/2023</span>
+                    <strong>Desenvolvedor Frontend</strong> | <span>06/2020 - 01/2023</span>
+                    <br />
+                    <i>Freelance</i>
+                    <br />
                 </p>
 
                 <div ref={ReferenciaLINE1} className="division"></div>

@@ -13,12 +13,14 @@ const SectionStyled = styled.section`
     h1{
         letter-spacing: 0.02rem;
         font-size: 2.5rem;
+        font-family: "Libre Baskerville", serif;
     }
     
     h3{
         letter-spacing: 0.04rem;
         font-size: 1.4rem;
         font-weight: 500;
+        font-family: "Libre Baskerville", serif;
     }
 
     p{
@@ -38,27 +40,8 @@ const SectionStyled = styled.section`
         border-bottom: dashed 1px #FF0;
     }
 
-    div.linkHolder{
-        margin-top: 16px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        
-        p{
-            /* margin: 16px 0; */
-            span{
-                display: flex;
-                justify-content: flex-start;
-                img{
-                    width: 24px;
-                    height: 24px;
-                }
-            }
-        }
-    }
-
     div.socialHolder{
-        margin-top: 32px;
+        margin-top: 16px;
         display: flex;
         justify-content: space-between;
 
@@ -93,16 +76,9 @@ export default function ContactPage({setEstado}){
     const ReferenciaLINE2 = useRef(null)
 
     useEffect(() => {
-        gsap.fromTo(ReferenciaLINE1.current, {width: "0"}, {width: "100%", duration: .2})
-        
-        gsap.fromTo(ReferenciaEMAIL.current, {opacity: 0}, {opacity: 1, duration: 1, delay: .2})
-        gsap.fromTo(ReferenciaTEL.current, {opacity: 0}, {opacity: 1, duration: 1, delay: .4})
-        
-        gsap.fromTo(ReferenciaLINE2.current, {width: "0"}, {width: "100%", duration: .4, delay: .6})
-
-        gsap.to(ReferenciaGIT.current, {opacity: 1, y: 8, duration: 2, delay: .8})
-        gsap.to(ReferenciaINSTA.current, {opacity: 1, y: 8, duration: 2, delay: 1})
-        gsap.to(ReferenciaLINKEDIN.current, {opacity: 1, y: 8, duration: 2, delay: 1.2})
+        gsap.to(ReferenciaGIT.current, {opacity: 1, y: 8, duration: 3})
+        gsap.to(ReferenciaINSTA.current, {opacity: 1, y: 8, duration: 3, delay: 1})
+        gsap.to(ReferenciaLINKEDIN.current, {opacity: 1, y: 8, duration: 3, delay: 2})
     })
 
     return (
@@ -114,12 +90,6 @@ export default function ContactPage({setEstado}){
             <div ref={ReferenciaLINE1} className="division"></div>
 
             <BtnCotacao onClick={() => setEstado(2)}>CV</BtnCotacao>
-
-            <div className="linkHolder">
-                <p ref={ReferenciaEMAIL}><span><img src="/email_icon.svg" alt="" /></span>thyezoliveira@gmail.com</p>
-                <p ref={ReferenciaTEL}><span><img src="/phone.svg" alt="" /></span>(22)998548514</p>
-                {/* <p><span><img src="/meet.svg" alt="" /></span>Reuniōes presenciais</p> */}
-            </div>
 
             <div ref={ReferenciaLINE2} className="division"></div>
 

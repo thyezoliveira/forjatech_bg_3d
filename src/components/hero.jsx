@@ -12,6 +12,7 @@ const Secao = styled.section`
 `;
 
 const Texto = styled.h1`
+    font-family: "Libre Baskerville", serif;
     font-weight: 500;
     font-size: 30px;
     letter-spacing: -1.5px;
