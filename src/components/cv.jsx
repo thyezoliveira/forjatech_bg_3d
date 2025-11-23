@@ -25,19 +25,23 @@ const SecaoCurriculo = styled.section`
         div.imgRef{
             background-color: transparent;
             border: dashed 1px #FF0;
-            width: 100%;
-            min-width: 100px;
+            width: 1200px;
+            /* min-width: 100px; */
             overflow: hidden;
             position: relative;
             margin-left: 8px;
+            transition: width 0.3s ease-out;
 
             img{
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-45%, -24%);
-                width: 200px;
+                transform: translate(-32%, 0);
+                max-width: 200px;
+                scale: 1.4;
                 filter: drop-shadow(0 2px 16px black) brightness(1);
+                transform-origin: center;
+                transition: transform 0.1s ease-out, filter 0.1s ease-out;
             }
         }
     }
@@ -79,27 +83,38 @@ export default function CurriculumVitae(){
     const ReferenciaLINE1 = useRef(null);
     const secaoRef = useRef(null);
     const imgRef = useRef(null);
+    const imgContainerRef = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (!secaoRef.current || !imgRef.current) return;
+            if (!secaoRef.current || !imgRef.current || !imgContainerRef.current) return;
 
             const scrollTop = secaoRef.current.scrollTop;
             const maxScroll = secaoRef.current.scrollHeight - secaoRef.current.clientHeight;
             const scrollProgress = scrollTop / maxScroll;
 
             // Movimentos sutis
-            const translateY = scrollProgress * 500; // Move para baixo
-            const scale = 1 + (scrollProgress * 2); // Aumenta sutilmente
-            const brightness = 1 - (scrollProgress * 2.5);
+            const translateY = scrollProgress * 100; // Move para baixo
+            const scale = 1 - (scrollProgress * 0.45); // Diminui sutilmente
+            const brightness = Math.max(0, 1 - (scrollProgress * 5)); // Evita valores negativos
 
             imgRef.current.style.transform = `
-                translate(-45%, -24%) 
+                translate(-32%, 0)
                 translateY(${translateY}px)
-                scale(${scale})
+                scale(${Math.max(0.1, scale)})
             `;
 
             imgRef.current.style.filter = `drop-shadow(0 2px 16px black) brightness(${brightness})`;
+
+            // Reduz a largura do container quando scroll passa de 10%
+            if (scrollProgress > 0.128) {
+                // Calcula progresso de 0.1 até 0.8 (normaliza para 0 a 1)
+                const fadeProgress = (scrollProgress - 0.128) / 0.55;
+                const width = 100 - (fadeProgress * 100); // De 100% até 0%
+                imgContainerRef.current.style.width = `${Math.max(0, width)}%`;
+            } else {
+                imgContainerRef.current.style.width = '1200px';
+            }
         };
 
         const secao = secaoRef.current;
@@ -130,7 +145,7 @@ export default function CurriculumVitae(){
                     Python <span> | </span>Flask <span> | </span>JavaScript <span> | </span>Node <span> | </span>AWS <span> | </span>linux <span> | </span>SSH <span> | </span>MySQL <span> | </span>Git <span> | </span> Modelagem 3d <span> | </span>Ui/Ux <span> | </span>Figma <span> | </span>Krita <span> | </span>React.js <span> | </span>THREE.js <span> | </span>Sass <span> | </span>Godot Engine<span> | </span>Desenvolvedor Full-Stack <span> | </span>Backend <span> | </span>Frontend <span> | </span>Web <span> | </span>Nuvem <span> | </span>Jogos<span> | </span>Francófono <span> | </span>Inglês intermediário <span> | </span>Gestão de projetos web <span> | </span>IA
                     </p>
 
-                    <div className="imgRef">
+                    <div ref={imgContainerRef} className="imgRef">
                         <img ref={imgRef} src="/thyez_for_web.png" alt="" />
                     </div>
                 </div>
