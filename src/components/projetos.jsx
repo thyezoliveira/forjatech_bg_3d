@@ -6,7 +6,7 @@ const SecaoProjetos = styled.section`
   color: #ff0;
   height: calc(100vh - 100px);
   overflow-y: scroll;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
   user-select: none;
 
   h1 {
@@ -20,13 +20,13 @@ const SecaoProjetos = styled.section`
   h3 {
     font-family: "Libre Baskerville", serif;
     color: #ff0;
-    letter-spacing: .2rem;
+    letter-spacing: .08rem;
     font-weight: 100;
   }
 
   p {
     margin: 0;
-    font-weight: 300;
+    font-weight: 200;
     font-size: 1.2rem;
     color: white;
     line-height: 1.4rem;
@@ -44,6 +44,7 @@ const SecaoProjetos = styled.section`
       margin: 8px 0;
       color: white;
       font-weight: 200;
+      letter-spacing: 0.02rem;
       span {
         color: #ff0;
         font-weight: 600;
