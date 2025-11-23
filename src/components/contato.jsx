@@ -142,7 +142,7 @@ export default function ContactPage({setEstado}){
             {/* <div ref={ReferenciaLINE1} className="division"></div> */}
 
             <BtnCotacao onClick={() => setEstado(2)}>Curriculum Vitae</BtnCotacao>
-            <BtnCotacao onClick={() => setEstado(3)}>Peça seu orçamento</BtnCotacao>
+            {/* <BtnCotacao onClick={() => setEstado(3)}>Peça seu orçamento</BtnCotacao> */}
 
             <div className="cpr">
                 <span className="c">©</span> 
