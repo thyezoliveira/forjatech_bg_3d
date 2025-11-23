@@ -45,8 +45,11 @@ const SectionStyled = styled.section`
 
     div.socialHolder{
         display: flex;
-        justify-content: center;
-        margin: 32px 0;
+        justify-content: space-around;
+        margin: 16px 0;
+        background-color: rgba(0,0,0,0.5);
+        padding: 16px 0;
+        border: dashed 1px #FF0;
 
         a{
             opacity: 0;
