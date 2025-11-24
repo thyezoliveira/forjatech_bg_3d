@@ -138,7 +138,7 @@ export default function CurriculumVitae(){
             `;
 
             // Atualizar filtro SVG
-            const filter = document.querySelector('#chromatic-aberration');
+            const filter = document.querySelector('#chromatic-aberrationn');
             if (filter) {
                 const redOffset = filter.querySelector('feOffset[result="red-offset"]');
                 const blueOffset = filter.querySelector('feOffset[result="blue-offset"]');
@@ -153,7 +153,7 @@ export default function CurriculumVitae(){
 
             // Aplicar filtro apenas se houver scroll (scrollProgress > 0)
             if (scrollProgress > 0) {
-                imgRef.current.style.filter = `drop-shadow(0 2px 16px black) brightness(${brightness}) url(#chromatic-aberration)`;
+                imgRef.current.style.filter = `drop-shadow(0 2px 16px black) brightness(${brightness}) url(#chromatic-aberrationn)`;
             } else {
                 imgRef.current.style.filter = `drop-shadow(0 2px 16px black) brightness(${brightness})`;
             }
@@ -185,7 +185,7 @@ export default function CurriculumVitae(){
             {/* SVG Filter para aberração cromática */}
             <svg>
                 <defs>
-                    <filter id="chromatic-aberration">
+                    <filter id="chromatic-aberrationn">
                         <feOffset in="SourceGraphic" dx="-3" dy="0" result="red-offset"/>
                         <feColorMatrix in="red-offset" type="matrix" 
                             values="1 0 0 0 0
