@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 const SecaoCurriculo = styled.section`
     background-color: rgba(0,0,0,0.4);
@@ -140,6 +141,20 @@ export default function CurriculumVitae(){
     const imgContainerRef = useRef(null);
 
     useEffect(() => {
+        gsap.fromTo(
+                imgContainerRef.current,
+                {
+                    opacity: 0,
+                    width: 0
+                },
+                {
+                    opacity: 1,
+                    width: "100%",
+                    duration: 1,
+                    ease: 'power4.in'
+                }
+            );
+
         const handleScroll = () => {
             if (!secaoRef.current || !imgRef.current || !imgContainerRef.current) return;
 
