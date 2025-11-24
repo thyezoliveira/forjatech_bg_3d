@@ -39,7 +39,7 @@ const SecaoCurriculo = styled.section`
         }
         
         div.imgRef{
-            background-color: transparent;
+            background-color: rgba(0, 0, 0, 0.8);
             border: dashed 1px #FF0;
             width: 1200px;
             overflow: hidden;
@@ -149,8 +149,8 @@ export default function CurriculumVitae(){
                 },
                 {
                     opacity: 1,
-                    width: "100%",
-                    duration: 1,
+                    width: "1200px",
+                    duration: 1.5,
                     ease: 'power4.in'
                 }
             );
@@ -164,7 +164,7 @@ export default function CurriculumVitae(){
 
             // Movimentos sutis
             const translateY = scrollProgress * 100;
-            const scale = 1.4 - (scrollProgress * 0.2);
+            const scale = 1.4 - (scrollProgress * 0.8);
             const brightness = Math.max(0, 1 - (scrollProgress * 1));
 
             // Aberração cromática aumenta com o scroll
