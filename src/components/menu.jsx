@@ -33,7 +33,6 @@ const MenuStyled = styled.section`
 `;
 
 export const MenuButton = styled.button`
-    font-family: "Roboto Condensed", sans-serif;
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;

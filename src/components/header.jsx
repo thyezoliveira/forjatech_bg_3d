@@ -30,14 +30,44 @@ const MenuButton = styled.button`
     color: #FF0;
     font-size: 30px;
     cursor: pointer;
+
+    @media (min-width: 425px){
+        display: none;
+    }
 `;
 
-export default function Header({setMenuIsOpen}){
+const DisplaButtons = styled.div`
+    button{
+        background-color: transparent;
+        color: #FF0;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 100;
+        margin: 0 4px;
+
+        &:hover{
+            color: hsla(60, 100%, 50%, 0.8);
+            border-bottom: dashed 1px #ff0;
+        }
+    }
+
+    @media (max-width: 425px){
+        display: none;
+    }
+`;
+
+export default function Header({setMenuIsOpen, estado, setEstado}) {
 
     return (
         <HeaderStyled>
             <Wrapper>
                 <img src="/logo_full.svg" alt="logo forjatech" onClick={() => {location.href = location.origin}}/>
+                <DisplaButtons className="displayButtons">
+                    <button onClick={() => setEstado(1)}>INICIO</button>
+                    <button onClick={() => setEstado(5)}>PROJETOS</button>
+                    <button onClick={() => setEstado(4)}>CONTATO</button>
+                </DisplaButtons>
                 <MenuButton onClick={() => setMenuIsOpen(true)}>...</MenuButton>
             </Wrapper>
         </HeaderStyled>
