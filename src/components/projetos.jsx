@@ -176,6 +176,18 @@ export default function ProjectsPage() {
             <span>
               <a href="https://github.com/sistemainternosmecict/jogo-agente-anti-dengue">AGENTE ANTI-DENGUE / Secretaria de Saúde</a>
             </span>
+            <br />
+            <span>
+              <a href="https://github.com/sistemainternosmecict/jogo-memoria-sambaqui">JOGO DA MEMORIA SAMBAQUI / Secretaria de Cultura</a>
+            </span>
+            <br />
+            <span>
+              <a href="https://github.com/sistemainternosmecict/jogo-caca-palavras-smda">CAÇA PALAVRAS SMDA / Secretaria de Direitos dos Animais</a>
+            </span>
+            <br />
+            <span>
+              <a href="https://github.com/sistemainternosmecict/jogo-memoria-autores">JOGO DA MEMORIA AUTORES / Secretaria de Educação</a>
+            </span>
           </li>
         </ul>
 
