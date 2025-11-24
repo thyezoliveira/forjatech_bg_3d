@@ -5,7 +5,7 @@ import Filtro from "./filtro";
 
 const Secao = styled.section`
     padding: 16px;
-    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
     height: calc(100vh - 100px);
     display: flex;
     flex-direction: column;
@@ -15,20 +15,18 @@ const Secao = styled.section`
 
 const Texto = styled.h1`
     font-family: "Libre Baskerville", serif;
-    font-weight: 500;
-    font-size: 30px;
-    letter-spacing: -1.5px;
-    line-height: 35px;
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: 0.04rem;
     width: inherit;
     max-width: 240px;
     margin:16px 0;
 `;
 
 const SubTexto = styled.p`
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: 300;
+    font-size: 1.2rem;
     color: white;
-    line-height: 24px;
     letter-spacing: 1.4px;
     margin: 32px 0;
 `;

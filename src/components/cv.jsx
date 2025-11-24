@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useEffect, useRef } from "react";
 
 const SecaoCurriculo = styled.section`
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.4);
     padding: 16px;
     color: #FF0;
     height: calc(100vh - 100px);
@@ -80,8 +80,8 @@ const SecaoCurriculo = styled.section`
 
     div{
         margin: 0;
-        font-weight: 200;
-        font-size: .9rem;
+        font-weight: 300;
+        font-size: 1.2rem;
         color: white;
         user-select: none;
 
@@ -98,7 +98,7 @@ const SecaoCurriculo = styled.section`
     div.experiencia{
         width: 100%;
         margin: 16px 0;
-        font-size: 1rem;
+        font-size: 1.2rem;
         user-select: none;
     }
 `;

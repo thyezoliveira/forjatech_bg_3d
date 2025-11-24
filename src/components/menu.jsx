@@ -49,6 +49,7 @@ export const MenuButton = styled.button`
     text-align: center;
     opacity: 0;
     transform: translate(-40%, 0);
+    cursor: pointer;
 `;
 
 export default function Menu({ menuIsOpen, setMenuIsOpen, setEstado }){

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 const SectionStyled = styled.section`
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.4);
     padding: 16px;
     color: #FF0;
     height: calc(100vh - 100px);
@@ -28,10 +28,9 @@ const SectionStyled = styled.section`
 
     p{
         color: white;
-        font-size: 16px;
+        font-size: 1.2rem;
         letter-spacing: 0.064rem;
-        font-weight: 200;
-        line-height: 1.2rem;
+        font-weight: 300;
         display: flex;
         align-items: center;
 

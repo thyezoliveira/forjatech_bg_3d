@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const SecaoProjetos = styled.section`
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 16px;
   color: #ff0;
   height: calc(100vh - 100px);
@@ -26,10 +26,9 @@ const SecaoProjetos = styled.section`
 
   p {
     margin: 0;
-    font-weight: 200;
+    font-weight: 300;
     font-size: 1.2rem;
     color: white;
-    line-height: 1.4rem;
 
     span {
       color: #ff0;
@@ -39,11 +38,11 @@ const SecaoProjetos = styled.section`
   ul {
     list-style: none;
     padding: 0;
-    font-size: 1rem;
+    font-size: 1.2rem;
     li {
       margin: 8px 0;
       color: white;
-      font-weight: 200;
+      font-weight: 300;
       letter-spacing: 0.02rem;
       span {
         color: #ff0;

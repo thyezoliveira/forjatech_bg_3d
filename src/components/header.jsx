@@ -18,6 +18,10 @@ const Wrapper = styled.div`
     margin: 0 auto;
     width: 100%;
     padding: 16px 0;
+
+    img{
+        cursor: pointer;
+    }
 `;
 
 const MenuButton = styled.button`
@@ -25,6 +29,7 @@ const MenuButton = styled.button`
     border: none;
     color: #FF0;
     font-size: 30px;
+    cursor: pointer;
 `;
 
 export default function Header({setMenuIsOpen}){
