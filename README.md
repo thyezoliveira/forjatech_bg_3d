@@ -50,7 +50,7 @@ npm run dev
 yarn run dev
 ```
 
-4. Abra [http://localhost:5174](http://localhost:5174) no seu navegador
+4. Abra [http://localhost:5173](http://localhost:5173) no seu navegador
 
 ## 📦 Build para Produção
 

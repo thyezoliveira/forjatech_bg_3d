@@ -13,22 +13,22 @@ function CameraController({ estado }) {
     const targetPosition = useRef(new THREE.Vector3());
     const targetLookAt = useRef(new THREE.Vector3(0, 0, 0));
     const isAnimating = useRef(false);
-    const animationSpeed = 0.03; // Velocidade (0.01 = lento, 0.1 = rápido)
+    const animationSpeed = 0.02; // Velocidade (0.01 = lento, 0.1 = rápido)
 
     useEffect(() => {
         // Define posições baseado no estado
         if (estado === 0) {
             targetPosition.current.set(0, 0, 0);
         } else if (estado === 1) {
-            targetPosition.current.set(0, 0, 7.5);
+            targetPosition.current.set(0, 0, 5);
         } else if (estado === 2) {
-            targetPosition.current.set(5, 0, 7.5);
+            targetPosition.current.set(7.5, 0, 7.5);
         } else if (estado === 3) {
-            targetPosition.current.set(5, 0, 10);
+            targetPosition.current.set(7.5, 0, 7.5);
         } else if (estado === 4) {
-            targetPosition.current.set(-5, 0, 5);
+            targetPosition.current.set(-7.5, 0, 7.5);
         } else if (estado === 5) {
-            targetPosition.current.set(-5, 0, -5);
+            targetPosition.current.set(-7.5, 0, -7.5);
         }
         
         isAnimating.current = true;
@@ -188,7 +188,7 @@ function HexagonCanvas({estado}) {
             <Canvas
                 gl={{ stencil: true, antialias:false }}
                 camera={{
-                    fov: 50
+                    fov: 45
                 }}
             >
                 <CameraController estado={estado} />
