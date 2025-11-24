@@ -8,6 +8,20 @@ const SecaoCurriculo = styled.section`
     height: calc(100vh - 100px);
     overflow-y: scroll;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+    width: 100vw;
+
+    scrollbar: none; /* Safari and Chrome */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    &::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+    }
+    
+    @media (min-width: 725px) {
+        max-width: 725px;
+        margin: auto;
+    }
 
     svg {
         position: absolute;
@@ -53,8 +67,7 @@ const SecaoCurriculo = styled.section`
     h1{
         margin: 16px 0;
         font-size: 19px;
-        letter-spacing: 0.15rem;
-        text-align: center;
+        letter-spacing: 0.08rem;
         color: white;
         font-family: "Libre Baskerville", serif;
         user-select: none;
@@ -62,17 +75,23 @@ const SecaoCurriculo = styled.section`
 
     div.linkHolder{
         display: flex;
+        flex-direction: column;
+
+        @media (min-width: 426px){
+            flex-direction: row;
+            gap: 16px;
+        }
         
         p{
             display: flex;
             align-items: center;
-            margin: 0 8px;
+            margin: 0;
             user-select: auto;
             span{
                 img{
                     width: 16px;
                     height: 16px;
-                    margin: 0 2px;
+                    margin: 0 8px 0 0;
                 }
             }
         }
@@ -88,6 +107,7 @@ const SecaoCurriculo = styled.section`
         h3{
             font-family: "Libre Baskerville", serif;
             color: #FF0;
+            font-size: 1.16rem;
         }
 
         span{
@@ -105,6 +125,8 @@ const SecaoCurriculo = styled.section`
 
 const Rolagem = styled.div`
     display: block;
+    padding: 16px;
+    margin-bottom: 32px;
 
     h3{
         font-family: "Libre Baskerville", serif;

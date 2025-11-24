@@ -11,6 +11,14 @@ const SectionStyled = styled.section`
     filter: drop-shadow(0 1px 4px rgba(0,0,0,0.8));
     user-select: none;
 
+    @media (min-width: 725px) {
+        max-width: 725px;
+        margin: auto;
+        border: dashed 1px #FF0;
+        margin-top: 128px;
+        height: auto;
+    }
+
     h1{
         letter-spacing: .01rem;
         font-size: 2rem;
@@ -56,6 +64,10 @@ const SectionStyled = styled.section`
             opacity: 0;
             font-size: 14px;
             transform: translateY(20px);
+
+            &:hover{
+                filter: drop-shadow(0 0 2px #FF0);}
+
             span{
                 margin: 8px;
                 img{
@@ -69,17 +81,27 @@ const SectionStyled = styled.section`
         height: 100vh;
         position: relative;
 
+        @media (min-width: 725px) {
+            height: 132px;
+        }
+
         div.cpr{
             position: absolute;
-            bottom: 500px;
+            bottom: 525px;
             left: 0;
-            background-color: rgba(255, 255, 0, .8);
+            right: 0;
+            margin: auto;
+            background-color: rgba(255, 255, 0, 0.8);
             border: dashed 1px #FF0;
             width: 100%;
             height: 100px;
             color: black;
             overflow: hidden;
             letter-spacing: 0.1%;
+
+            @media (min-width: 725px) {
+                bottom: 0;
+            }
     
             p{
                 color: black;
@@ -114,6 +136,10 @@ const SectionStyled = styled.section`
 const BtnCotacao = styled(CTAButton)`
     width: 100%;
     margin: 4px 0;
+
+    &:hover{
+        background-color: #FF0;
+        color: #000;}
 `;
 
 export default function ContactPage({setEstado}){

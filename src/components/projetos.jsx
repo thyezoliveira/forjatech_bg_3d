@@ -9,12 +9,24 @@ const SecaoProjetos = styled.section`
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
   user-select: none;
 
+  scrollbar: none; /* Safari and Chrome */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
   h1 {
     font-family: "Libre Baskerville", serif;
     font-size: 1.6rem;
     letter-spacing: .01rem;
     color: white;
     margin: 16px 0;
+
+    @media (min-width: 725px) {
+      font-size: 2rem;
+    }
   }
   
   h3 {
@@ -59,6 +71,12 @@ const SecaoProjetos = styled.section`
 
 const Rolagem = styled.div`
   display: block;
+
+  @media (min-width: 725px) {
+    max-width: 725px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
 `;
 
 export default function ProjectsPage() {
@@ -76,9 +94,9 @@ export default function ProjectsPage() {
 
         <div className="division"></div>
 
-        <h1>Infraestrutura e Automação Governamental 🏛️</h1>
+        <h1>Automação Governamental 🏛️</h1>
 
-        <h3>Secretaria de Educação de Saquarema</h3>
+        <h3>Secretaria Municipal de Educação, Cultura, Inclusão, Ciência e Tecnologia de Saquarema</h3>
 
         <p>
           Nesta atuação focada em eficiência administrativa e modernização de
@@ -111,8 +129,8 @@ export default function ProjectsPage() {
 
         <div className="division"></div>
 
-        <h1>Gamificação e Interatividade (FLIS) 🎮</h1>
-        <h3>Feira Literária Itinerante de Saquarema</h3>
+        <h1>Gamificação 🎮</h1>
+        <h3>FLIS | Feira Literária Itinerante de Saquarema</h3>
 
         <p>
           Desenvolvimento de soluções interativas para engajamento público em
@@ -139,7 +157,7 @@ export default function ProjectsPage() {
         <div className="division"></div>
 
         <h1>
-            Transformação Digital e Web (2020 - 2023) 🌐
+            Transformação Digital [2020 - 2023] 🌐
         </h1>
 
         <h3>

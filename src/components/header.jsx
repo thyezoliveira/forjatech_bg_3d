@@ -21,6 +21,11 @@ const Wrapper = styled.div`
 
     img{
         cursor: pointer;
+        width: 96px;
+
+        @media (min-width: 725px){
+            width: 128px;
+        }
     }
 
     @media (min-width: 768px){

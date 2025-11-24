@@ -66,6 +66,11 @@ export const CTAButton = styled.button`
     padding: 16px;
     cursor: pointer;
 
+    &:hover{
+        background-color: rgba(255, 255, 0, 0.4);
+        color: #000;
+    }
+
     @media (min-width: 768px){
         flex-grow: 1;
         font-size: 1.4rem;
