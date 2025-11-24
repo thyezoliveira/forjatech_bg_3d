@@ -26,8 +26,8 @@ const MainStyled = styled.main`
 `;
 
 export default function Filtro() {
-    const [intensity] = useState(6);
-    const [opacity] = useState(8);
+    const [intensity] = useState(4.4);
+    const [opacity] = useState(5);
 
     useEffect(() => {
         const filter = document.querySelector('#chromatic-aberration');

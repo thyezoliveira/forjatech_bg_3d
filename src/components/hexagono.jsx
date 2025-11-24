@@ -219,6 +219,7 @@ function HexagonCanvas({estado}) {
                     color="#00F"
                     rotation={hex.rotation}
                     stencilMode='content'
+                    speed={1.5}
                     />
                 ))}
                 

@@ -1,19 +1,19 @@
-import styled from "styled-components"
-import {CTAButton} from "./hero";
+import styled from "styled-components";
 import { useEffect, useRef } from "react";
 
-// const BtnCotacao = styled(CTAButton)`
-//     width: 100%;
-//     margin: 16px 0;
-// `;
-
 const SecaoCurriculo = styled.section`
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.2);
     padding: 16px;
     color: #FF0;
     height: calc(100vh - 100px);
     overflow-y: scroll;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+
+    svg {
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
 
     div.ladoAlado{
         display: flex;
@@ -27,7 +27,6 @@ const SecaoCurriculo = styled.section`
             background-color: transparent;
             border: dashed 1px #FF0;
             width: 1200px;
-            /* min-width: 100px; */
             overflow: hidden;
             position: relative;
             margin-left: 8px;
@@ -41,7 +40,7 @@ const SecaoCurriculo = styled.section`
                 max-width: 200px;
                 filter: drop-shadow(0 2px 16px black) brightness(1);
                 transform-origin: center;
-                transition: transform 0.1s ease-out, filter 0.1s ease-out;
+                transition: transform 0.1s ease-out;
             }
         }
     }
@@ -125,11 +124,12 @@ export default function CurriculumVitae(){
             const scrollProgress = scrollTop / maxScroll;
 
             // Movimentos sutis
-            const translateY = scrollProgress * 100; // Move para baixo
-            const scale = 1.4 - (scrollProgress * 0.2); // Diminui sutilmente
-            const brightness = Math.max(0, 1 - (scrollProgress * 5)); // Evita valores negativos
+            const translateY = scrollProgress * 100;
+            const scale = 1.4 - (scrollProgress * 0.2);
+            const brightness = Math.max(0, 1 - (scrollProgress * 1));
 
-            console.log("scale: ", scale)
+            // Aberração cromática aumenta com o scroll
+            const chromaticIntensity = scrollProgress * 32; // De 0 a 32px
 
             imgRef.current.style.transform = `
                 translate(-50%, -20%)
@@ -137,13 +137,31 @@ export default function CurriculumVitae(){
                 scale(${Math.max(0.1, scale)})
             `;
 
-            imgRef.current.style.filter = `drop-shadow(0 2px 16px black) brightness(${brightness})`;
+            // Atualizar filtro SVG
+            const filter = document.querySelector('#chromatic-aberration');
+            if (filter) {
+                const redOffset = filter.querySelector('feOffset[result="red-offset"]');
+                const blueOffset = filter.querySelector('feOffset[result="blue-offset"]');
+                
+                if (redOffset && blueOffset) {
+                    redOffset.setAttribute('dx', -chromaticIntensity);
+                    redOffset.setAttribute('dy', -chromaticIntensity * 0.3);
+                    blueOffset.setAttribute('dx', chromaticIntensity);
+                    blueOffset.setAttribute('dy', chromaticIntensity * 0.3);
+                }
+            }
 
-            // Reduz a largura do container quando scroll passa de 10%
+            // Aplicar filtro apenas se houver scroll (scrollProgress > 0)
+            if (scrollProgress > 0) {
+                imgRef.current.style.filter = `drop-shadow(0 2px 16px black) brightness(${brightness}) url(#chromatic-aberration)`;
+            } else {
+                imgRef.current.style.filter = `drop-shadow(0 2px 16px black) brightness(${brightness})`;
+            }
+
+            // Reduz a largura do container
             if (scrollProgress > 0.3) {
-                // Calcula progresso de 0.1 até 0.8 (normaliza para 0 a 1)
                 const fadeProgress = (scrollProgress - 0.3) / 0.015;
-                const width = 100 - (fadeProgress * 100); // De 100% até 0%
+                const width = 100 - (fadeProgress * 100);
                 imgContainerRef.current.style.width = `${Math.max(0, width)}%`;
             } else {
                 imgContainerRef.current.style.width = '1200px';
@@ -164,6 +182,33 @@ export default function CurriculumVitae(){
 
     return (
         <SecaoCurriculo ref={secaoRef}>
+            {/* SVG Filter para aberração cromática */}
+            <svg>
+                <defs>
+                    <filter id="chromatic-aberration">
+                        <feOffset in="SourceGraphic" dx="-3" dy="0" result="red-offset"/>
+                        <feColorMatrix in="red-offset" type="matrix" 
+                            values="1 0 0 0 0
+                                    0 0 0 0 0
+                                    0 0 0 0 0
+                                    0 0 0 1 0" result="red-channel"/>
+                        <feColorMatrix in="SourceGraphic" type="matrix" 
+                            values="0 0 0 0 0
+                                    0 1 0 0 0
+                                    0 0 0 0 0
+                                    0 0 0 1 0" result="green-channel"/>
+                        <feOffset in="SourceGraphic" dx="3" dy="0" result="blue-offset"/>
+                        <feColorMatrix in="blue-offset" type="matrix" 
+                            values="0 0 0 0 0
+                                    0 0 0 0 0
+                                    0 0 1 0 0
+                                    0 0 0 1 0" result="blue-channel"/>
+                        <feBlend in="red-channel" in2="green-channel" mode="screen" result="rg"/>
+                        <feBlend in="rg" in2="blue-channel" mode="screen"/>
+                    </filter>
+                </defs>
+            </svg>
+
             <Rolagem>
                 <h1>Thyéz de Oliveira Monteiro</h1>
 
@@ -173,24 +218,20 @@ export default function CurriculumVitae(){
                 </div>
                 <div ref={ReferenciaLINE1} className="division"></div>
 
-
                 <div className="ladoAlado">
                     <div>
-                    <h3>
-                        Habilidades Técnicas
-                    </h3>
-
-                    <p>
-                        Python <span> | </span>Flask <span> | </span>JavaScript <span> | </span>Node <span> | </span>AWS <span> | </span>linux <span> | </span>SSH <span> | </span>MySQL <span> | </span>Git <span> | </span> Modelagem 3d <span> | </span>Ui/Ux <span> | </span>Figma <span> | </span>Krita <span> | </span>React.js <span> | </span>THREE.js <span> | </span>Sass <span> | </span>Godot Engine<span> | </span>Desenvolvedor Full-Stack <span> | </span>Backend <span> | </span>Frontend <span> | </span>Web <span> | </span>Nuvem <span> | </span>Jogos<span> | </span>Francófono <span> | </span>Inglês intermediário <span> | </span>Gestão de projetos web <span> | </span>IA
-                    </p>
+                        <h3>Habilidades Técnicas</h3>
+                        <p>
+                            Python <span> | </span>Flask <span> | </span>JavaScript <span> | </span>Node <span> | </span>AWS <span> | </span>linux <span> | </span>SSH <span> | </span>MySQL <span> | </span>Git <span> | </span> Modelagem 3d <span> | </span>Ui/Ux <span> | </span>Figma <span> | </span>Krita <span> | </span>React.js <span> | </span>THREE.js <span> | </span>Sass <span> | </span>Godot Engine<span> | </span>Desenvolvedor Full-Stack <span> | </span>Backend <span> | </span>Frontend <span> | </span>Web <span> | </span>Nuvem <span> | </span>Jogos<span> | </span>Francófono <span> | </span>Inglês intermediário <span> | </span>Gestão de projetos web <span> | </span>IA
+                        </p>
                     </div>
 
                     <div ref={imgContainerRef} className="imgRef">
-                        <img ref={imgRef} src="/thyez_amarelo.png" alt="" />
+                        <img ref={imgRef} src="/thyez_amarelo.png" alt="Thyéz de Oliveira Monteiro" />
                     </div>
                 </div>
 
-                <div ref={ReferenciaLINE1} className="division"></div>
+                <div className="division"></div>
 
                 <h3>Experiência</h3>
                 
@@ -208,25 +249,21 @@ export default function CurriculumVitae(){
                     <strong>Desenvolvedor Full Stack</strong> | <span>01/2023 - Hoje</span>
                     <br />
                     <i>forjatech</i>
-                    <br />
                 </div>
 
                 <div className="experiencia">
                     <strong>Estagiário</strong> | <span>10/2023 - 12/2024</span>
                     <br />
                     <i>Secretaria de Educação de Saquarema</i>
-                    <br />
-                    
                 </div>
                 
                 <div className="experiencia">
                     <strong>Desenvolvedor Frontend</strong> | <span>06/2020 - 01/2023</span>
                     <br />
                     <i>Freelance</i>
-                    <br />
                 </div>
 
-                <div ref={ReferenciaLINE1} className="division"></div>
+                <div className="division"></div>
 
                 <h3>Formação acadêmica</h3>
 
@@ -234,15 +271,12 @@ export default function CurriculumVitae(){
                    Universidade Cruzeiro do Sul / <strong>UNICSUL</strong> <span>10/2021 - 10/2025</span>
                    <br />
                    <br />
-                   <span>
-                   Cursando: 
-                   </span> Bacharelado, Engenharia de Software
+                   <span>Cursando: </span> Bacharelado, Engenharia de Software
                    <br />
                    <br />
                     Minha formação em Engenharia de Software é focada na aplicação prática de princípios de engenharia ao longo de todo o ciclo de vida do desenvolvimento. O currículo combina uma sólida base computacional (algoritmos, estruturas de dados e bancos de dados) com práticas avançadas de mercado, incluindo arquitetura de software, design patterns e metodologias ágeis. Além disso, o curso integra tecnologias emergentes e essenciais para o cenário atual, como Computação em Nuvem e Inteligência Artificial, preparando-me para projetar soluções robustas e escaláveis.
-
                 </div>
             </Rolagem>
         </SecaoCurriculo>
-    )
+    );
 }
