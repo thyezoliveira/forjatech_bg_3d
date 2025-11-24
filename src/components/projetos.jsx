@@ -60,7 +60,6 @@ const SecaoProjetos = styled.section`
         color: #ff0;
         font-weight: 600;
         a{
-          text-decoration: none;
           color: #ff0;
           
           &:hover{
@@ -159,6 +158,24 @@ export default function ProjectsPage() {
             <span>Engajamento Educativo:</span> Foco na experiência do usuário
             (UX) para criar interfaces intuitivas que atendessem ao público
             diverso do evento literário, unindo tecnologia e aprendizado lúdico.
+          </li>
+
+          <li>
+            <br />
+            Abaixo deixei os links dos repositórios dos projetos dos jogos, em cada repositório tem um link para acessar o jogo online.
+            <br />
+            <br />
+            <span>
+              <a href="https://github.com/sistemainternosmecict/quiz_da_mulher">QUIZ DA MULHER / Secretaria da Mulher</a>
+            </span>
+            <br />
+            <span>
+              <a href="https://github.com/sistemainternosmecict/jogo-anti-bullying">JOGO-ANTIBULLYING / Secretaria de Saúde</a>
+            </span>
+            <br />
+            <span>
+              <a href="https://github.com/sistemainternosmecict/jogo-agente-anti-dengue">AGENTE ANTI-DENGUE / Secretaria de Saúde</a>
+            </span>
           </li>
         </ul>
 
