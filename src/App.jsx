@@ -21,7 +21,7 @@ function App() {
   useEffect(()=> {
     switch(estado){
       case 1:
-        setBgColorString("radial-gradient(circle, rgba(0, 0, 0, 0.6) 50%,rgba(79, 77, 0, 0.9) 100%);")
+        setBgColorString("radial-gradient(circle, rgba(0, 0, 0, 0.6) 70%,rgba(66, 66, 0, 0.9) 100%);")
         break;
       case 2:
         setBgColorString("radial-gradient(circle, rgba(0, 0, 0, 0.6) 50%, rgba(0, 66, 66, 0.8) 100%);")
