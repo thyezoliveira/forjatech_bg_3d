@@ -59,6 +59,14 @@ const SecaoProjetos = styled.section`
       span {
         color: #ff0;
         font-weight: 600;
+        a{
+          text-decoration: none;
+          color: #ff0;
+          
+          &:hover{
+            color: rgba(255, 255, 255, 1);
+            }
+        }
       }
     }
   }
@@ -191,9 +199,12 @@ export default function ProjectsPage() {
 
         </p>
 
+      <div className="division"></div>
 
+      <ul>
+        <li>Este portifolio é um dos meus projetos principais, se quiser saber como o fiz, acesse o repositório do projeto em <span><a href="https://github.com/thyezoliveira/forjatech_bg_3d">AQUI</a></span>.</li>
 
-
+      </ul>
 
       </Rolagem>
     </SecaoProjetos>
