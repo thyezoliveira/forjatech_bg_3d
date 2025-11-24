@@ -23,7 +23,6 @@ const MenuStyled = styled.section`
         display: flex;
         flex-direction: column;
         margin-bottom: 64px;
-        /* width: 100%; */
     }
 
     div.division{
@@ -43,7 +42,6 @@ export const MenuButton = styled.button`
     border: none;
     padding: 16px 0;
     width: 100%;
-    /* max-width: 200px; */
     margin: 4px 0;
     text-align: center;
     opacity: 0;

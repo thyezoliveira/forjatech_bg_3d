@@ -22,6 +22,14 @@ const Wrapper = styled.div`
     img{
         cursor: pointer;
     }
+
+    @media (min-width: 768px){
+        max-width: 768px;
+    }
+
+    // @media (min-width: 1024px){
+    //     max-width: 1024px;
+    // }
 `;
 
 const MenuButton = styled.button`
@@ -31,7 +39,7 @@ const MenuButton = styled.button`
     font-size: 30px;
     cursor: pointer;
 
-    @media (min-width: 425px){
+    @media (min-width: 426px){
         display: none;
     }
 `;
@@ -39,20 +47,20 @@ const MenuButton = styled.button`
 const DisplaButtons = styled.div`
     button{
         background-color: transparent;
-        color: #FF0;
+        color: hsla(60, 100%, 50%, 0.4);
         border: none;
-        font-size: 16px;
+        font-size: 1rem;
         cursor: pointer;
         font-weight: 100;
-        margin: 0 4px;
-
+        margin: 8px;
+        
         &:hover{
-            color: hsla(60, 100%, 50%, 0.8);
-            border-bottom: dashed 1px #ff0;
+            color: #FF0;
+            // border-bottom: dashed 1px #ff0;
         }
     }
 
-    @media (max-width: 425px){
+    @media (max-width: 426px){
         display: none;
     }
 `;

@@ -11,6 +11,21 @@ const Secao = styled.section`
     flex-direction: column;
     justify-content: flex-end;
     user-select: none;
+
+    .ctaHolder{
+        display: flex;
+        flex-direction: column;
+
+        @media (min-width: 768px){
+            flex-direction: row;
+            align-items: center;
+            gap: 32px;
+        }
+    }
+    
+    @media (min-width: 768px){
+        max-width: 768px;
+    }
 `;
 
 const Texto = styled.h1`
@@ -21,23 +36,41 @@ const Texto = styled.h1`
     width: inherit;
     max-width: 240px;
     margin:16px 0;
+
+    @media (min-width: 768px){
+        font-size: 2.4rem;
+        max-width: 100%;
+        margin: 32px 0;
+    }
 `;
 
 const SubTexto = styled.p`
     font-weight: 300;
     font-size: 1.2rem;
     color: white;
-    letter-spacing: 1.4px;
+    letter-spacing: 1.2px;
     margin: 32px 0;
+    
+    @media (min-width: 768px){
+        font-size: 1.2rem;
+        flex-grow: 2;
+        max-width: 500px;
+    }
 `;
 
 export const CTAButton = styled.button`
     background-color: rgba(0,0,0,0.4);
     border: dashed 1px #FF0;
     color: #FFF;
-    font-size: 16px;
+    font-size: 1rem;
     padding: 16px;
     cursor: pointer;
+
+    @media (min-width: 768px){
+        flex-grow: 1;
+        font-size: 1.4rem;
+        max-width: 300px;
+    }
 `;
 
 const WordContainer = styled.span`
@@ -185,13 +218,15 @@ export default function Hero({setEstado, AnimacaoPaginaInicialExecutada}){
                     <span ref={wordElement}>Transforme</span>
                 </WordContainer> seus processos!
             </Texto>
-            <SubTexto ref={ReferenciaTexto}>
-                Desenvolvimento de software personalizado para eliminar tarefas repetitivas, 
-                reduzir custos operacionais e transformar dados em decisões estratégicas para seu negócio.
-            </SubTexto>
-            <CTAButton ref={ReferenciaCTA} onClick={() => setEstado(4)}>
-                Analise seus processos gratuitamente
-            </CTAButton>
+            <div className="ctaHolder">
+                <SubTexto ref={ReferenciaTexto}>
+                    Desenvolvimento de software personalizado para eliminar tarefas repetitivas, 
+                    reduzir custos operacionais e transformar dados em decisões estratégicas para seu negócio.
+                </SubTexto>
+                <CTAButton ref={ReferenciaCTA} onClick={() => setEstado(4)}>
+                    Analise seus processos gratuitamente
+                </CTAButton>
+            </div>
         </Secao>
     )
 }
