@@ -20,7 +20,7 @@ const SecaoCurriculo = styled.section`
         user-select: none;
 
         p{
-            font-size: 14px;
+            font-size: 1rem;
         }
         
         div.imgRef{
@@ -53,6 +53,7 @@ const SecaoCurriculo = styled.section`
     h1{
         margin: 16px 0;
         font-size: 19px;
+        letter-spacing: 0.15rem;
         text-align: center;
         color: white;
         font-family: "Libre Baskerville", serif;
@@ -97,6 +98,7 @@ const SecaoCurriculo = styled.section`
     div.experiencia{
         width: 100%;
         margin: 16px 0;
+        font-size: 1rem;
         user-select: none;
     }
 `;
@@ -267,13 +269,14 @@ export default function CurriculumVitae(){
 
                 <h3>Formação acadêmica</h3>
 
-                <div className="experiencias">
+                <div className="experiencia">
                    Universidade Cruzeiro do Sul / <strong>UNICSUL</strong> <span>10/2021 - 10/2025</span>
                    <br />
                    <br />
                    <span>Cursando: </span> Bacharelado, Engenharia de Software
                    <br />
                    <br />
+                   
                     Minha formação em Engenharia de Software é focada na aplicação prática de princípios de engenharia ao longo de todo o ciclo de vida do desenvolvimento. O currículo combina uma sólida base computacional (algoritmos, estruturas de dados e bancos de dados) com práticas avançadas de mercado, incluindo arquitetura de software, design patterns e metodologias ágeis. Além disso, o curso integra tecnologias emergentes e essenciais para o cenário atual, como Computação em Nuvem e Inteligência Artificial, preparando-me para projetar soluções robustas e escaláveis.
                 </div>
             </Rolagem>
