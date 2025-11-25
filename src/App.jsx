@@ -8,7 +8,6 @@ import ContactPage from "./components/contato";
 import ProjectsPage from "./components/projetos";
 import OrcamentoForm from "./components/orcamentoForm";
 import CurriculumVitae from "./components/cv";
-import Cena3D3 from "./components/cena3d";
 
 function App() {
   const [menuIsOpen, setMenuIsOpen] = useState(false)
@@ -40,7 +39,6 @@ function App() {
   return (
     <>
       <HexagonCanvas estado={estado} />
-      {/* <Cena3D3 estado={estado} /> */}
 
       {menuIsOpen ?
       <>
