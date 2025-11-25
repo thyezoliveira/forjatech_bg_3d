@@ -26,8 +26,8 @@ const MainStyled = styled.main`
 `;
 
 export default function Filtro() {
-    const [intensity] = useState(4.4);
-    const [opacity] = useState(5);
+    const [intensity] = useState(8);
+    const [opacity] = useState(8);
 
     useEffect(() => {
         const filter = document.querySelector('#chromatic-aberration');
@@ -46,7 +46,7 @@ export default function Filtro() {
         <MainStyled>
             <div 
                 className="filter-overlay"
-                style={{ background: `rgba(255, 255, 255, ${opacity / 100})` }}
+                style={{ background: `rgba(255, 255, 0, ${opacity / 100})` }}
             />
 
             {/* SVG Filter */}

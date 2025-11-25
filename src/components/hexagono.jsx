@@ -157,19 +157,18 @@ export function Hexagon({
 
 // Componente do Canvas
 function HexagonCanvas({estado}) {
-    // const colors = ["#ff0", "#F00", "#0F0", "#00F", "#fff"]
 
     const hexagons = React.useMemo(() => {
         const items = [];
-        const count = 200; // quantidade de hexágonos
+        const count = 64; // quantidade de hexágonos
 
         for (let i = 0; i < count; i++) {
             items.push({
                 id: i,
                 position: [
-                    (Math.random() - 0.5) * 50, 
-                    (Math.random() - 0.5) * 50, 
-                    (Math.random() - 0.5) * 50
+                    (Math.random() - .5) * 20, // X entre -10 e 10
+                    (Math.random() - .5) * 20, // Y entre -10 e 10
+                    (Math.random() - .5) * 20 // Z entre -10 e 10
                 ],
                 size: Math.random() * 2 + 0.05, // tamanho entre 0.3 e 0.8
                 rotation: [
