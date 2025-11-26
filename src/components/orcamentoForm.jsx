@@ -76,7 +76,7 @@ const SecaoOrcamento = styled.section`
     }
 `;
 
-function realizarRegistro(dados){
+function realizarRegistro(dados, setMsg){
     const res = fetch("https://thyezoliveira.pythonanywhere.com/", {
         method: "POST",
         headers: {
@@ -85,11 +85,13 @@ function realizarRegistro(dados){
         body: JSON.stringify(dados)
     })
     res.then(response => response.json()).then(data => {
-        console.log(data)
+        const msg = data.msg;
+        setMsg(msg);
     })
 }
 
-export default function OrcamentoForm(){
+export default function OrcamentoForm({setEstado}){
+    const [msg, setMsg] = useState('');
     const [form, setForm] = useState({
         nomeEmpresa: '',
         ramoEmpresa: '',
@@ -109,29 +111,34 @@ export default function OrcamentoForm(){
 
     return (
         <SecaoOrcamento>
+            <form action="" method="post" onSubmit={(e) => {e.preventDefault(); realizarRegistro(form, setMsg, setEstado);}}>
+                {(!msg || msg == '') ?
+                <>
+                    <h1>Pedido de orçamento</h1>
+                    <input type="text" name="nomeEmpresa" id="nomeEmpresa" onChange={handleForm} value={form.nomeEmpresa} placeholder="Nome da sua empresa" />
+                    <input type="text" name="ramoEmpresa" id="ramoEmpresa" onChange={handleForm} value={form.ramoEmpresa} placeholder="Ramo da empresa" />
+                    <input type="email" name="emailContato" id="emailContato" onChange={handleForm} value={form.emailContato} placeholder="Email para contato" />
+                    <input type="phonr" name="telefone" id="telefone" onChange={handleForm} value={form.telefone} placeholder="Telefone para contato" />
+                    <select name="assunto" id="assunto" onChange={handleForm} value={form.assunto}>
+                        <option value="Landpage">Landpage</option>
+                        <option value="Website">Website</option>
+                        <option value="Artes para mídias sociais">Artes para mídias sociais</option>
+                        <option value="Gestāo de mídias sociais">Gestāo de mídias sociais</option>
+                        <option value="Sistema em nuvem">Sistema em nuvem</option>
+                        <option value="Sistema interno">Sistema interno</option>
+                        <option value="Software pesonalizado">Software pesonalizado</option>
+                    </select>
 
-            <form action="" method="post" onSubmit={(e) => {e.preventDefault(); realizarRegistro(form);}}>
-                <h1>Pedido de orçamento</h1>
-                <input type="text" name="nomeEmpresa" id="nomeEmpresa" onChange={handleForm} value={form.nomeEmpresa} placeholder="Nome da sua empresa" />
-                <input type="text" name="ramoEmpresa" id="ramoEmpresa" onChange={handleForm} value={form.ramoEmpresa} placeholder="Ramo da empresa" />
-                <input type="email" name="emailContato" id="emailContato" onChange={handleForm} value={form.emailContato} placeholder="Email para contato" />
-                <input type="phonr" name="telefone" id="telefone" onChange={handleForm} value={form.telefone} placeholder="Telefone para contato" />
-                <select name="assunto" id="assunto" onChange={handleForm} value={form.assunto}>
-                    <option value="Landpage">Landpage</option>
-                    <option value="Website">Website</option>
-                    <option value="Artes para mídias sociais">Artes para mídias sociais</option>
-                    <option value="Gestāo de mídias sociais">Gestāo de mídias sociais</option>
-                    <option value="Sistema em nuvem">Sistema em nuvem</option>
-                    <option value="Sistema interno">Sistema interno</option>
-                    <option value="Software pesonalizado">Software pesonalizado</option>
-                </select>
+                    <textarea cols={32} rows={10} name="descricaoDetalhada" id="descricaoDetalhada" onChange={handleForm} value={form.descricaoDetalhada} placeholder="Descreva suas necessidades">
 
-                <textarea cols={32} rows={10} name="descricaoDetalhada" id="descricaoDetalhada" onChange={handleForm} value={form.descricaoDetalhada} placeholder="Descreva suas necessidades">
+                    </textarea>
 
-                </textarea>
-
-                <BtnCotacao>Enviar</BtnCotacao>
-                {/* <p>Ainda nāo é possível enviar pedidos!</p> */}
+                    <BtnCotacao>Enviar</BtnCotacao>
+                </> :
+                <>
+                    <h1>{msg}</h1>
+                </>
+                }
             </form>
         </SecaoOrcamento>
     )

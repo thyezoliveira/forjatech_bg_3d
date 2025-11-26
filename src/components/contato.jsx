@@ -101,11 +101,19 @@ const SectionStyled = styled.section`
     div.btnHolder{
         display: flex;
         flex-direction: column;
+        align-items: center;
         margin-top: 16px;
 
-        @media (min-width: 425px) {
+        @media screen and (min-width: 425px) {
             flex-direction: row;
             justify-content: space-between;
+        }
+
+        img{
+            display: none;
+            @media screen and (min-width: 425px) {
+                display: block;
+            }
         }
     }
 
@@ -199,6 +207,8 @@ export default function ContactPage({setEstado}){
         gsap.to(ReferenciaLINKEDIN.current, {opacity: 1, y: 0, duration: 1, delay: .4})
     })
 
+    console.log(window.innerWidth)
+
     return (
         <SectionStyled>
 
@@ -218,6 +228,7 @@ export default function ContactPage({setEstado}){
 
             <div className="btnHolder">
                 <BtnCotacao onClick={() => setEstado(2)}>Curriculum Vitae</BtnCotacao>
+                <img src="/icon.svg" alt="Logo para dividir elementos" style={{width: 60}}/>
                 <BtnCotacao onClick={() => setEstado(3)}>Peça seu orçamento</BtnCotacao>
             </div>
 

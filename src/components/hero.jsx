@@ -5,7 +5,7 @@ import Filtro from "./filtro";
 
 const Secao = styled.section`
     padding: 16px;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+    filter: drop-shadow(0 1px 8px rgba(0,0,0,0.9));
     height: calc(100vh - 100px);
     display: flex;
     flex-direction: column;
@@ -18,13 +18,23 @@ const Secao = styled.section`
 
         @media (min-width: 768px){
             flex-direction: row;
-            align-items: center;
+            justify-content: space-between;
+            align-items: flex-end;
             gap: 32px;
+            margin-bottom: 128px;
         }
     }
     
     @media (min-width: 768px){
         max-width: 768px;
+        display: grid;
+        place-items: center;
+    }
+
+    @media (min-width: 1024px){
+        max-width: 1024px;
+        display: grid;
+        place-items: center;
     }
 `;
 
@@ -41,20 +51,51 @@ const Texto = styled.h1`
         font-size: 2.4rem;
         max-width: 100%;
         margin: 32px 0;
+        line-height: 4rem;
+    }
+
+    @media (min-width: 1024px){
+        font-size: 3rem;
+        line-height: 4.5rem;
+        letter-spacing: 0.02rem;
+    }
+`;
+
+const Texto2 = styled.h1`
+    font-family: "Libre Baskerville", serif;
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: 0.04rem;
+    width: inherit;
+    max-width: 240px;
+    margin:16px 0;
+
+    @media (min-width: 768px){
+        font-size: 2.5rem;
+        max-width: 100%;
+        margin: 32px 0;
+        letter-spacing: 0.08rem;
+    }
+
+    @media (min-width: 768px){
+        margin: 0;
     }
 `;
 
 const SubTexto = styled.p`
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1.2rem;
     color: white;
     letter-spacing: 1.2px;
     margin: 32px 0;
+    flex-basis: 100px;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.9));
     
     @media (min-width: 768px){
-        font-size: 1.2rem;
-        flex-grow: 2;
+        font-size: 1.4rem;
+        flex-grow: 1;
         max-width: 500px;
+        margin: 0;
     }
 `;
 
@@ -65,6 +106,7 @@ export const CTAButton = styled.button`
     font-size: 1rem;
     padding: 16px;
     cursor: pointer;
+    flex-basis: 100px;
 
     &:hover{
         background-color: rgba(255, 255, 0, 0.4);
@@ -73,8 +115,9 @@ export const CTAButton = styled.button`
 
     @media (min-width: 768px){
         flex-grow: 1;
-        font-size: 1.4rem;
+        font-size: 1.16rem;
         max-width: 300px;
+        width: 100%;
     }
 `;
 
@@ -218,11 +261,11 @@ export default function Hero({setEstado, AnimacaoPaginaInicialExecutada}){
             <Texto ref={ReferenciaTitulo} style={{color: "#ff0"}}>
                 Do trabalho manual à soluções digitais inteligentes.
             </Texto>
-            <Texto ref={ReferenciaFraseMeio} style={{color: "white"}}>
+            <Texto2 ref={ReferenciaFraseMeio} style={{color: "white"}}>
                 <WordContainer>
                     <span ref={wordElement}>Transforme</span>
                 </WordContainer> seus processos!
-            </Texto>
+            </Texto2>
             <div className="ctaHolder">
                 <SubTexto ref={ReferenciaTexto}>
                     Desenvolvimento de software personalizado para eliminar tarefas repetitivas, 

@@ -32,9 +32,9 @@ const Wrapper = styled.div`
         max-width: 768px;
     }
 
-    // @media (min-width: 1024px){
-    //     max-width: 1024px;
-    // }
+    @media (min-width: 1024px){
+        max-width: 1024px;
+    }
 `;
 
 const MenuButton = styled.button`

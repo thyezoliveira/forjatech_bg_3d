@@ -18,8 +18,8 @@ function App() {
 
   const AnimacaoPaginaInicialExecutada = useRef(false)
 
-  useEffect(()=> {
-    switch(estado){
+  useEffect(() => {
+    switch (estado) {
       case 1:
         setBgColorString("radial-gradient(circle, rgba(0, 0, 0, 0.6) 70%,rgba(66, 66, 0, 0.9) 100%);")
         break;
@@ -34,67 +34,42 @@ function App() {
         break;
       default:
         setBgColorString("radial-gradient(circle, var(--cor-principal) 1%, var(--cor-base) 100%);")
-    }}, [estado]);
+    }
+  }, [estado]);
 
   return (
     <>
       <HexagonCanvas estado={estado} />
 
       {menuIsOpen ?
-      <>
-        <Menu menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen} setEstado={setEstado}/>
-      </> : <>
-
-      {estado == 1 ? (
         <>
-          <Header setEstado={setEstado} estado={estado} setMenuIsOpen={setMenuIsOpen}/>
+          <Menu menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen} setEstado={setEstado} />
+        </> : <>
+
+          <Header setEstado={setEstado} estado={estado} setMenuIsOpen={setMenuIsOpen} />
           <Website bgcolor={bgColorString}>
             <div style={{ width: "100%", height: "64px" }}></div>
-            <Hero setEstado={setEstado} AnimacaoPaginaInicialExecutada={AnimacaoPaginaInicialExecutada}/>
+
+            {estado == 1 ?
+              <Hero setEstado={setEstado} AnimacaoPaginaInicialExecutada={AnimacaoPaginaInicialExecutada} />
+              : <></>}
+
+            {estado == 2 ?
+              <CurriculumVitae /> : <></>}
+
+            {estado == 3 ?
+              <OrcamentoForm setEstado={setEstado} />
+              : <></>}
+
+            {estado == 4 ?
+              <ContactPage setEstado={setEstado} />
+              : <></>}
+
+            {estado == 5 ?
+              <ProjectsPage setEstado={setEstado} /> : <></>}
+
           </Website>
-        </>
-      ) : (
-        <></>
-      )}
-
-      {estado == 2 ?
-      <>
-          <Website bgcolor={bgColorString}>
-            <Header setEstado={setEstado} estado={estado} setMenuIsOpen={setMenuIsOpen}/>
-            <div style={{ width: "100%", height: "64px" }}></div>
-            <CurriculumVitae />
-          </Website>
-      </> : <></>}
-
-      {estado == 3 ?
-      <>
-          <Website bgcolor={bgColorString}>
-            <Header setEstado={setEstado} estado={estado} setMenuIsOpen={setMenuIsOpen}/>
-            <div style={{ width: "100%", height: "64px" }}></div>
-            <OrcamentoForm />
-          </Website>
-      </> : <></>}
-
-      {estado == 4 ?
-      <>
-        <Website bgcolor={bgColorString}>
-            <Header setEstado={setEstado} estado={estado} setMenuIsOpen={setMenuIsOpen}/>
-            <div style={{ width: "100%", height: "64px" }}></div>
-            <ContactPage setEstado={setEstado} />
-          </Website>
-      </> : <></>}
-
-      </>}
-
-      {estado == 5 ?
-      <>
-        <Website bgcolor={bgColorString}>
-            <Header setEstado={setEstado} estado={estado} setMenuIsOpen={setMenuIsOpen}/>
-            <div style={{ width: "100%", height: "64px" }}></div>
-            <ProjectsPage setEstado={setEstado} />
-          </Website>
-      </> : <></>}
-
+        </>}
     </>
   );
 }
