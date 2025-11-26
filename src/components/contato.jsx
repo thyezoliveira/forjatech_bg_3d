@@ -19,62 +19,97 @@ const SectionStyled = styled.section`
         height: auto;
     }
 
-    h1{
-        letter-spacing: .01rem;
-        font-size: 2rem;
-        font-family: "Libre Baskerville", serif;
-        color: white;
-    }
-    
-    h3{
-        letter-spacing: .2rem;
-        line-height: 2rem;
-        font-size: 1.4rem;
-        font-weight: 300;
-        font-family: "Libre Baskerville", serif;
-    }
-
-    p{
-        color: white;
-        font-size: 1.2rem;
-        letter-spacing: 0.064rem;
-        font-weight: 300;
+    div.wrapper{
         display: flex;
-        align-items: center;
+        flex-direction: column;
 
-        span{
-            margin-right: 8px;
+        @media screen and (min-width: 425px) {
+            flex-direction: row;
+        }
+
+        div.textHolder{
+            order: 0;
+
+            @media screen and (min-width: 425px) {
+                order: 1;
+            }
+
+            h1{
+                letter-spacing: .01rem;
+                font-size: 2rem;
+                font-family: "Libre Baskerville", serif;
+                color: white;
+            }
+            
+            h3{
+                letter-spacing: .2rem;
+                line-height: 2rem;
+                font-size: 1.4rem;
+                font-weight: 300;
+                font-family: "Libre Baskerville", serif;
+            }
+        
+            p{
+                color: white;
+                font-size: 1.2rem;
+                letter-spacing: 0.064rem;
+                font-weight: 300;
+                display: flex;
+                align-items: center;
+        
+                span{
+                    margin-right: 8px;
+                }
+            }
+        }
+    
+        div.socialHolder{
+            order: 1;
+            display: flex;
+            justify-content: space-around;
+            margin: 16px 16px 16px 0;
+            background-color: rgba(0,0,0,0.4);
+            padding: 16px 0;
+            border: dashed 1px #FF0;
+
+            @media screen and (min-width: 425px) {
+                order: 0;
+                flex-direction: column;
+            }
+    
+            a{
+                opacity: 0;
+                font-size: 14px;
+                transform: translateY(20px);
+    
+                &:hover{
+                    filter: drop-shadow(0 0 2px #FF0);}
+    
+                span{
+                    margin: 8px;
+                    img{
+                        width: 35px;
+                    }
+                }
+            }
         }
     }
+
+    div.btnHolder{
+        display: flex;
+        flex-direction: column;
+        margin-top: 16px;
+
+        @media (min-width: 425px) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
 
     div.division{
         border-bottom: dashed 1px #FF0;
         margin: 16px 0;
-    }
-
-    div.socialHolder{
-        display: flex;
-        justify-content: space-around;
-        margin: 16px 0;
-        background-color: rgba(0,0,0,0.4);
-        padding: 16px 0;
-        border: dashed 1px #FF0;
-
-        a{
-            opacity: 0;
-            font-size: 14px;
-            transform: translateY(20px);
-
-            &:hover{
-                filter: drop-shadow(0 0 2px #FF0);}
-
-            span{
-                margin: 8px;
-                img{
-                    width: 35px;
-                }
-            }
-        }
     }
 
     div.copyHolder{
@@ -130,7 +165,6 @@ const SectionStyled = styled.section`
         }
     }
 
-
 `;
 
 const BtnCotacao = styled(CTAButton)`
@@ -162,24 +196,27 @@ export default function ContactPage({setEstado}){
 
     return (
         <SectionStyled>
-            <h1>CONTATO</h1>
-            <h3>Vamos forjar algo incrível juntos?</h3>
-            <p>Primeira conversa é gratuita. Sem compromisso, apenas foco em entender sua necessidade.</p>
 
-            
+            <div className="wrapper">
+                <div className="textHolder">
+                    <h1>CONTATO</h1>
+                    <h3>Vamos forjar algo incrível juntos?</h3>
+                    <p>Primeira conversa é gratuita. Sem compromisso, apenas foco em entender sua necessidade.</p>
+                </div>
 
-            {/* <div ref={ReferenciaLINE2} className="division"></div> */}
-
-            <div className="socialHolder">
-                <a ref={ReferenciaGIT} href="https://github.com/thyezoliveira" ><span><img src="/github_icone.svg" alt="" /></span></a>
-                <a ref={ReferenciaINSTA} href="https://www.instagram.com/forja_tech/" ><span><img src="/instagram_icone.svg" alt="" /></span></a>
-                <a ref={ReferenciaLINKEDIN} href="https://www.linkedin.com/in/engsofthyezoliveira/" ><span><img src="/linkedin_icone.svg" alt="" /></span></a>
+                <div className="socialHolder">
+                    <a ref={ReferenciaGIT} href="https://github.com/thyezoliveira" ><span><img src="/github_icone.svg" alt="" /></span></a>
+                    <a ref={ReferenciaINSTA} href="https://www.instagram.com/forja_tech/" ><span><img src="/instagram_icone.svg" alt="" /></span></a>
+                    <a ref={ReferenciaLINKEDIN} href="https://www.linkedin.com/in/engsofthyezoliveira/" ><span><img src="/linkedin_icone.svg" alt="" /></span></a>
+                </div>
             </div>
 
-            {/* <div ref={ReferenciaLINE1} className="division"></div> */}
+            <div className="btnHolder">
+                <BtnCotacao onClick={() => setEstado(2)}>Curriculum Vitae</BtnCotacao>
+                {(window.innerWidth < 800) ? <p>----------</p> : <div className="division"></div>}
+                <BtnCotacao onClick={() => setEstado(3)}>Peça seu orçamento</BtnCotacao>
+            </div>
 
-            <BtnCotacao onClick={() => setEstado(2)}>Curriculum Vitae</BtnCotacao>
-            {/* <BtnCotacao onClick={() => setEstado(3)}>Peça seu orçamento</BtnCotacao> */}
 
             <div className="copyHolder">
                 <div className="cpr">
