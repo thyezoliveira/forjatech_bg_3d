@@ -133,10 +133,9 @@ const SectionStyled = styled.section`
             
         div.cpr{
             position: absolute;
-            // bottom: 525px;
             left: 0;
             right: 0;
-            margin: auto;
+            margin: 4px auto;
             background-color: rgba(255, 255, 0, 0.8);
             border: dashed 1px #FF0;
             width: 100%;
