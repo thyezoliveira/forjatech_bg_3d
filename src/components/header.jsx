@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const HeaderStyled = styled.header`
-    background-color: #010101;
+    background-color: rgba(1, 1, 1, .9);
     padding: 0 16px;
     height: 70px;
     position: fixed;
@@ -9,6 +9,7 @@ const HeaderStyled = styled.header`
     left: 0;
     right: 0;
     z-index: 10;
+    backdrop-filter: blur(8px);
     `;
 
 const Wrapper = styled.div`
