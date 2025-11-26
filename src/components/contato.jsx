@@ -133,7 +133,7 @@ const SectionStyled = styled.section`
             
         div.cpr{
             position: absolute;
-            bottom: 525px;
+            // bottom: 525px;
             left: 0;
             right: 0;
             margin: auto;
@@ -144,6 +144,12 @@ const SectionStyled = styled.section`
             color: black;
             overflow: hidden;
             letter-spacing: 0.1%;
+
+            @media (min-width: 425px) {
+                bottom: 0;
+                position: relative;
+                margin-top: 32px;
+            }
 
             @media (min-width: 725px) {
                 bottom: 0;
@@ -183,6 +189,7 @@ const SectionStyled = styled.section`
 const BtnCotacao = styled(CTAButton)`
     width: 100%;
     margin: 4px 0;
+    flex-basis: auto;
 
     &:hover{
         background-color: #FF0;
