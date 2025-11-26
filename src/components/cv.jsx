@@ -65,38 +65,60 @@ const SecaoCurriculo = styled.section`
         margin: 16px 0;
     }
 
-    h1{
-        margin: 16px 0;
-        font-size: 19px;
-        letter-spacing: 0.08rem;
-        color: white;
-        font-family: "Libre Baskerville", serif;
-        user-select: none;
-    }
-
-    div.linkHolder{
+    div.top{
         display: flex;
-        flex-direction: column;
 
-        @media (min-width: 426px){
-            flex-direction: row;
-            gap: 16px;
+        h1{
+            margin: 16px 0;
+            font-size: 19px;
+            letter-spacing: 0.08rem;
+            color: white;
+            font-family: "Libre Baskerville", serif;
+            user-select: none;
         }
-        
-        p{
+    
+        div.linkHolder{
             display: flex;
-            align-items: center;
-            margin: 0;
-            user-select: auto;
-            span{
-                img{
-                    width: 16px;
-                    height: 16px;
-                    margin: 0 8px 0 0;
+
+    
+            @media (min-width: 426px){
+                flex-direction: row;
+                gap: 16px;
+                margin-left: 16px;
+            }
+            
+            p{
+                display: flex;
+                align-items: center;
+                margin: 0;
+                user-select: auto;
+                a{
+                    text-decoration: none;
+                    color: #FF0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 16px;
+
+                    @media screen and (min-width: 426px){
+                        flex-direction: row;
+                        margin: 0;
+                    }
+
+                    span{
+                        width: inherit;
+                        height: inherit;
+                        img{
+                            width: 16px;
+                            height: 16px;
+                            margin: 0 8px 0 0;
+                        }
+                    }
                 }
             }
         }
     }
+
 
     div{
         margin: 0;
@@ -249,11 +271,14 @@ export default function CurriculumVitae(){
             </svg>
 
             <Rolagem>
-                <h1>Thyéz de Oliveira Monteiro</h1>
+                <div className="top">
 
-                <div className="linkHolder">
-                    <p><span><img src="/email_icon.svg" alt="" /></span>thyezoliveira@gmail.com</p>
-                    <p><span><img src="/phone.svg" alt="" /></span>(22)998548514</p>
+                    <h1>Thyéz de Oliveira Monteiro</h1>
+
+                    <div className="linkHolder">
+                        <p><a href="mailto:thyezoliveira@gmail.com"><span><img src="/email_icon.svg" alt="" /></span>email</a></p>
+                        <p><a href="tel:+5522998548514"><span><img src="/phone.svg" alt="" /></span>cel</a></p>
+                    </div>
                 </div>
                 <div ref={ReferenciaLINE1} className="division"></div>
 
