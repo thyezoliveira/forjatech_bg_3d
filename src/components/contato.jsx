@@ -77,6 +77,7 @@ const SectionStyled = styled.section`
                 order: 0;
                 flex-direction: column;
                 width: auto;
+                margin: 16px 16px 16px 0;
             }
     
             a{
@@ -115,12 +116,12 @@ const SectionStyled = styled.section`
     }
 
     div.copyHolder{
-        height: 80vh;
+        height: 90vh;
         position: relative;
         
-        @media (min-width: 725px) {
-            height: 132px;
-            }
+        @media (min-width: 425px) {
+            height: inherit;
+        }
             
         div.cpr{
             position: absolute;
@@ -138,6 +139,8 @@ const SectionStyled = styled.section`
 
             @media (min-width: 725px) {
                 bottom: 0;
+                position: relative;
+                margin-top: 32px;
             }
     
             p{

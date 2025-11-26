@@ -117,13 +117,13 @@ export default function OrcamentoForm(){
                 <input type="email" name="emailContato" id="emailContato" onChange={handleForm} value={form.emailContato} placeholder="Email para contato" />
                 <input type="phonr" name="telefone" id="telefone" onChange={handleForm} value={form.telefone} placeholder="Telefone para contato" />
                 <select name="assunto" id="assunto" onChange={handleForm} value={form.assunto}>
-                    <option value="">Landpage</option>
-                    <option value="">Website</option>
-                    <option value="">Artes para mídias sociais</option>
-                    <option value="">Gestāo de mídias sociais</option>
-                    <option value="">Sistema em nuvem</option>
-                    <option value="">Sistema interno</option>
-                    <option value="">Software pesonalizado</option>
+                    <option value="Landpage">Landpage</option>
+                    <option value="Website">Website</option>
+                    <option value="Artes para mídias sociais">Artes para mídias sociais</option>
+                    <option value="Gestāo de mídias sociais">Gestāo de mídias sociais</option>
+                    <option value="Sistema em nuvem">Sistema em nuvem</option>
+                    <option value="Sistema interno">Sistema interno</option>
+                    <option value="Software pesonalizado">Software pesonalizado</option>
                 </select>
 
                 <textarea cols={32} rows={10} name="descricaoDetalhada" id="descricaoDetalhada" onChange={handleForm} value={form.descricaoDetalhada} placeholder="Descreva suas necessidades">
