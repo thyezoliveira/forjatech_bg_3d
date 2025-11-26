@@ -70,7 +70,7 @@ const DisplaButtons = styled.div`
     }
 `;
 
-export default function Header({setMenuIsOpen, estado, setEstado}) {
+export default function Header({setMenuIsOpen, setEstado}) {
 
     return (
         <HeaderStyled>

@@ -65,9 +65,10 @@ const SectionStyled = styled.section`
     
         div.socialHolder{
             order: 1;
+            width: 100%;
             display: flex;
             justify-content: space-around;
-            margin: 16px 16px 16px 0;
+            margin: 16px 0 16px 0;
             background-color: rgba(0,0,0,0.4);
             padding: 16px 0;
             border: dashed 1px #FF0;
@@ -75,6 +76,7 @@ const SectionStyled = styled.section`
             @media screen and (min-width: 425px) {
                 order: 0;
                 flex-direction: column;
+                width: auto;
             }
     
             a{
@@ -113,13 +115,13 @@ const SectionStyled = styled.section`
     }
 
     div.copyHolder{
-        height: 100vh;
+        height: 80vh;
         position: relative;
-
+        
         @media (min-width: 725px) {
             height: 132px;
-        }
-
+            }
+            
         div.cpr{
             position: absolute;
             bottom: 525px;
@@ -213,7 +215,6 @@ export default function ContactPage({setEstado}){
 
             <div className="btnHolder">
                 <BtnCotacao onClick={() => setEstado(2)}>Curriculum Vitae</BtnCotacao>
-                {(window.innerWidth < 800) ? <p>----------</p> : <div className="division"></div>}
                 <BtnCotacao onClick={() => setEstado(3)}>Peça seu orçamento</BtnCotacao>
             </div>
 

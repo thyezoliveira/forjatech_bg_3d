@@ -1,8 +1,10 @@
 import styled from "styled-components"
 import {CTAButton} from "./hero";
+import { useState } from 'react'
 
 const BtnCotacao = styled(CTAButton)`
     width: 100%;
+    max-width: 300px;
     margin: 16px 0;
 `;
 
@@ -11,6 +13,8 @@ const SecaoOrcamento = styled.section`
     padding: 8px;
     color: #FF0;
     height: calc(100vh - 100px);
+    width: 100%;
+    user-select: none;
 
     h1{
         margin: 16px 0;
@@ -22,6 +26,16 @@ const SecaoOrcamento = styled.section`
         display: flex;
         flex-direction: column;
         align-items: center;
+        
+        @media (min-width: 425px) {
+            background-color: rgba(0,0,0,0.8);
+            border: dashed 1px #FF0;
+            width: 100%;
+            max-width: 400px;
+            padding: 16px;
+            margin: 32px auto;
+        }
+
         input{
             background-color: rgba(0,0,0,0.8);
             color: #FF0;
@@ -62,16 +76,47 @@ const SecaoOrcamento = styled.section`
     }
 `;
 
+function realizarRegistro(dados){
+    const res = fetch("https://thyezoliveira.pythonanywhere.com/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dados)
+    })
+    res.then(response => response.json()).then(data => {
+        console.log(data)
+    })
+}
+
 export default function OrcamentoForm(){
+    const [form, setForm] = useState({
+        nomeEmpresa: '',
+        ramoEmpresa: '',
+        emailContato: '',
+        telefone: '',
+        assunto: '',
+        descricaoDetalhada: ''
+    })
+
+    function handleForm(e){
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
+    }
+
+
     return (
         <SecaoOrcamento>
-            <h1>Pedido de orçamento</h1>
 
-            <form action="">
-                <input type="text" placeholder="Nome da sua empresa" />
-                <input type="text" placeholder="Ramo da empresa" />
-                <input type="text" placeholder="Email para contato" />
-                <select name="" id="">
+            <form action="" method="post" onSubmit={(e) => {e.preventDefault(); realizarRegistro(form);}}>
+                <h1>Pedido de orçamento</h1>
+                <input type="text" name="nomeEmpresa" id="nomeEmpresa" onChange={handleForm} value={form.nomeEmpresa} placeholder="Nome da sua empresa" />
+                <input type="text" name="ramoEmpresa" id="ramoEmpresa" onChange={handleForm} value={form.ramoEmpresa} placeholder="Ramo da empresa" />
+                <input type="email" name="emailContato" id="emailContato" onChange={handleForm} value={form.emailContato} placeholder="Email para contato" />
+                <input type="phonr" name="telefone" id="telefone" onChange={handleForm} value={form.telefone} placeholder="Telefone para contato" />
+                <select name="assunto" id="assunto" onChange={handleForm} value={form.assunto}>
                     <option value="">Landpage</option>
                     <option value="">Website</option>
                     <option value="">Artes para mídias sociais</option>
@@ -81,12 +126,12 @@ export default function OrcamentoForm(){
                     <option value="">Software pesonalizado</option>
                 </select>
 
-                <textarea cols={32} rows={10} name="" id="" placeholder="Descreva suas necessidades">
+                <textarea cols={32} rows={10} name="descricaoDetalhada" id="descricaoDetalhada" onChange={handleForm} value={form.descricaoDetalhada} placeholder="Descreva suas necessidades">
 
                 </textarea>
 
-                {/* <BtnCotacao>Enviar</BtnCotacao> */}
-                <p>Ainda nāo é possível enviar pedidos!</p>
+                <BtnCotacao>Enviar</BtnCotacao>
+                {/* <p>Ainda nāo é possível enviar pedidos!</p> */}
             </form>
         </SecaoOrcamento>
     )

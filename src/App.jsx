@@ -27,7 +27,7 @@ function App() {
         setBgColorString("radial-gradient(circle, rgba(0, 0, 0, 0.6) 50%, rgba(0, 66, 66, 0.8) 100%);")
         break;
       case 3:
-        setBgColorString("radial-gradient(circle, rgba(0, 0, 0, 0.6) 50%, rgba(77, 0, 0, 0.8) 100%);")
+        setBgColorString("radial-gradient(circle, rgba(0, 0, 0, 0.6) 50%, rgba(168, 129, 69, 0.8) 100%);")
         break;
       case 4:
         setBgColorString("radial-gradient(circle, rgba(0, 0, 0, 0.6) 50%, rgba(0, 41, 62, 0.8) 100%);")
