@@ -213,8 +213,6 @@ export default function ContactPage({setEstado}){
         gsap.to(ReferenciaLINKEDIN.current, {opacity: 1, y: 0, duration: 1, delay: .4})
     })
 
-    console.log(window.innerWidth)
-
     return (
         <SectionStyled>
 

@@ -110,7 +110,7 @@ function returnMsgDefault(msg) {
 }
 
 function realizarRegistro(dados, setMsg) {
-    const res = fetch("https://thyezoliveira.pythonanywhere.com/", {
+    const res = fetch("https://thyezoliveira.pythonanywhere.com/api/orcamento", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
