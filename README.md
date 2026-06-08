@@ -28,7 +28,7 @@ Este projeto foi construído utilizando tecnologias de ponta para criar uma expe
 ### Pré-requisitos
 
 - Node.js (versão 16 ou superior)
-- npm ou yarn
+- bun
 
 ### Passos para executar
 
@@ -40,16 +40,12 @@ cd forjatech
 
 2. Instale as dependências:
 ```bash
-npm install
-# ou
-yarn install
+bun install
 ```
 
 3. Execute o projeto em modo de desenvolvimento:
 ```bash
-npm run dev
-# ou
-yarn run dev
+bun run dev
 ```
 
 4. Abra [http://localhost:5173](http://localhost:5173) no seu navegador
@@ -59,9 +55,7 @@ yarn run dev
 Para criar uma versão otimizada para produção:
 
 ```bash
-npm run build
-# ou
-yarn build
+bun run build
 ```
 
 Os arquivos otimizados serão gerados na pasta `build/`.
@@ -74,10 +68,8 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 
 Para mais informações ou oportunidades de trabalho, entre em contato:
 
-- Portfolio: [forjatech-ofeicial.netlify.app](https://forjatech-oficial.netlify.app)
+- Portfolio: [studio-forja-tecnologia.netlify.app](https://studio-forja-tecnologia.netlify.app/)
 - Email: thyezoliveira@gmail.com
-- LinkedIn: [engsofthyezoliveira](https://www.linkedin.com/in/engsofthyezoliveira/)
-- GitHub: [thyezoliveira](https://github.com/thyezoliveira)
 
 ---
 
