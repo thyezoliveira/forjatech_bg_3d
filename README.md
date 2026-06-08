@@ -1,5 +1,7 @@
 # ForjaTech Portfolio
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f1f1e4bb-3a2e-46e9-855b-60c409675291/deploy-status)](https://app.netlify.com/projects/studio-forja-tecnologia/deploys)
+
 Portfólio pessoal interativo e moderno desenvolvido para showcasing de projetos e habilidades como desenvolvedor de software e websites.
 
 ## 🚀 Tecnologias
