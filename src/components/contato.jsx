@@ -40,7 +40,7 @@ const SectionStyled = styled.section`
                 font-family: "Libre Baskerville", serif;
                 color: white;
             }
-            
+
             h3{
                 letter-spacing: .2rem;
                 line-height: 2rem;
@@ -48,7 +48,7 @@ const SectionStyled = styled.section`
                 font-weight: 300;
                 font-family: "Libre Baskerville", serif;
             }
-        
+
             p{
                 color: white;
                 font-size: 1.2rem;
@@ -56,13 +56,13 @@ const SectionStyled = styled.section`
                 font-weight: 300;
                 display: flex;
                 align-items: center;
-        
+
                 span{
                     margin-right: 8px;
                 }
             }
         }
-    
+
         div.socialHolder{
             order: 1;
             width: 100%;
@@ -79,15 +79,15 @@ const SectionStyled = styled.section`
                 width: auto;
                 margin: 16px 16px 16px 0;
             }
-    
+
             a{
                 opacity: 0;
                 font-size: 14px;
                 transform: translateY(20px);
-    
+
                 &:hover{
                     filter: drop-shadow(0 0 2px #FF0);}
-    
+
                 span{
                     margin: 8px;
                     img{
@@ -126,11 +126,11 @@ const SectionStyled = styled.section`
     div.copyHolder{
         height: 90vh;
         position: relative;
-        
+
         @media (min-width: 425px) {
             height: inherit;
         }
-            
+
         div.cpr{
             position: absolute;
             left: 0;
@@ -155,14 +155,14 @@ const SectionStyled = styled.section`
                 position: relative;
                 margin-top: 32px;
             }
-    
+
             p{
                 color: black;
                 position: absolute;
                 top: -10px;
                 right: 10px;
             }
-    
+
             span.c{
                 font-size: 200px;
                 font-weight: 900;
@@ -171,7 +171,7 @@ const SectionStyled = styled.section`
                 left: 0;
                 transform: translate(-32%, -30%);
             }
-            
+
             span.cp{
                 font-size: 65px;
                 font-weight: 400;
@@ -199,8 +199,7 @@ export default function ContactPage({setEstado}){
     // {setEstado}){
     const ReferenciaGIT = useRef(null)
     const ReferenciaINSTA = useRef(null)
-    const ReferenciaLINKEDIN = useRef(null)
-    
+
     const ReferenciaEMAIL = useRef(null)
     const ReferenciaTEL = useRef(null)
 
@@ -210,7 +209,6 @@ export default function ContactPage({setEstado}){
     useEffect(() => {
         gsap.to(ReferenciaGIT.current, {opacity: 1, y: 0, duration: 1})
         gsap.to(ReferenciaINSTA.current, {opacity: 1, y: 0, duration: 1, delay: .2})
-        gsap.to(ReferenciaLINKEDIN.current, {opacity: 1, y: 0, duration: 1, delay: .4})
     })
 
     return (
@@ -225,21 +223,19 @@ export default function ContactPage({setEstado}){
 
                 <div className="socialHolder">
                     <a ref={ReferenciaGIT} href="https://github.com/thyezoliveira" ><span><img src="/github_icone.svg" alt="" /></span></a>
-                    <a ref={ReferenciaINSTA} href="https://www.instagram.com/forja_tech/" ><span><img src="/instagram_icone.svg" alt="" /></span></a>
-                    <a ref={ReferenciaLINKEDIN} href="https://www.linkedin.com/in/engsofthyezoliveira/" ><span><img src="/linkedin_icone.svg" alt="" /></span></a>
+                    <a ref={ReferenciaINSTA} href="https://www.instagram.com/studio_forja_tecnologia/" ><span><img src="/instagram_icone.svg" alt="" /></span></a>
                 </div>
             </div>
 
             <div className="btnHolder">
                 <BtnCotacao onClick={() => setEstado(2)}>Curriculum Vitae</BtnCotacao>
                 <img src="/icon.svg" alt="Logo para dividir elementos" style={{width: 60}}/>
-                <BtnCotacao onClick={() => setEstado(3)}>Peça seu orçamento</BtnCotacao>
             </div>
 
 
             <div className="copyHolder">
                 <div className="cpr">
-                    <span className="c">©</span> 
+                    <span className="c">©</span>
                     <span className="cp">
                     Copyright
 
